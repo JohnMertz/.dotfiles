@@ -1,0 +1,5 @@
+alias upgrade="sudo dnf upgrade -y"
+alias apt="dnf"
+alias apt-get="dnf"
+alias apt-cache="dnf"
+alias vim="nvim"

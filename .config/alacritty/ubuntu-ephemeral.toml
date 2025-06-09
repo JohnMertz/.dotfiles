@@ -1,0 +1,17 @@
+general.import = ["/var/home/jpm/.dotfiles/.config/alacritty/alacritty.toml", "/var/home/jpm/.dotfiles/.config/alacritty/ubuntu.toml"]
+
+[env]
+TERM_TITLE = "Alacritty (Ubuntu Ephemeral)"
+
+[terminal.shell]
+args = ["ephemeral", "-i", "ubuntu:22.04"]
+program = "/usr/bin/distrobox"
+
+[window]
+title = "Alacritty - Ubuntu (Ephemeral)"
+
+[window.class]
+general = "Alacritty-ubuntu-ephemeral"
+instance = "Alacritty-ubuntu-ephemeral"
+
+[terminal]

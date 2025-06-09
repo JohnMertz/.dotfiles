@@ -1,0 +1,9 @@
+[Unit]
+Description=Enable keyboard backlight in the evening
+
+[Timer]
+OnCalendar=*-*-* 18:00:00
+Unit=enable-kbd-backlight.service
+
+[Install]
+WantedBy=user@1000.slice

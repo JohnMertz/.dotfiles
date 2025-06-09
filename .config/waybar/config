@@ -1,0 +1,227 @@
+[{
+    "name": "bar",
+    "output": "eDP-1",
+    "ipc": true,
+    "id": "bar-1",
+    "modes": {
+	"invisible": {
+	    "passthrough": true,
+	    "visible": false,
+	    "layer": "bottom",
+            "exclusive": false,
+            "gtk-layer-shell": true,
+	},
+	"dock": {
+	    "passthrough": false,
+	    "visible": true,
+	    "layer": "top",
+            "exclusive": true,
+            "gtk-layer-shell": true,
+	},
+	"overlay": {
+	    "passthrough": false,
+	    "visible": true,
+	    "layer": "overlay",
+            "exclusive": false,
+            "gtk-layer-shell": false,
+	},
+	"hide": {
+	    "passthrough": false,
+	    "visible": true,
+	    "layer": "overlay",
+            "exclusive": false,
+            "gtk-layer-shell": false,
+	}
+    },
+    "position": "bottom",
+    "reload_style_on_change": true,
+    "mode": "dock",
+    // Choose the order of the modules
+    "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
+    "modules-center": [],
+    "modules-right": ["custom/keyboard", "custom/rss", "custom/weather", "backlight", "cpu", "memory", "custom/disk", "temperature", "pulseaudio", "custom/battery", "tray", "custom/wallpaper", "custom/pkg", "custom/idle_mode", "custom/pomodoro", "custom/clock", "custom/nc"],
+    // Modules configuration
+    "sway/workspaces": {
+        // "disable-scroll": true,
+        // "all-outputs": true,
+        "format": "{icon}",
+        "numeric-first": true,
+        "format-icons": {
+            "0": "0 \uf073", // HUD
+            "1": "1 \uf27a", // Chat
+            "2": "2 \uf0e0", // Mail
+            "3": "3 \uf268", // Secondary Browser
+            "4": "4 \uf126", // Git
+            "5": "5 \uf095", // TBD
+            "6": "6 \uf120", // Terminals
+            "7": "7 \uf269", // Browser
+            "8": "8 \uf121", // IDE
+            "9": "9 \uf144", // Music
+            "C0": "C0",
+            "C1": "C1",
+            "C2": "C2",
+            "C3": "C3",
+            "C4": "C4",
+            "C5": "C5",
+            "C6": "C6",
+            "C7": "C7",
+            "C8": "C8",
+            "C9": "C9",
+            //"default": "",
+            //"urgent": "!",
+            //"focused": "",
+            "grave": ""
+         }
+    },
+    "sway/window": {
+        "format": "{title}",
+        "rewrite": {
+            "(.*) - Mozilla Firefox": "🌎 $1",
+            "vim (.*)": " $1",
+            "(.*) - Alacritty .*": "🏠 $1",
+        }
+    },
+    //"mpd": {
+        //"server": "10.10.0.66",
+        //"port": 6600,
+        //"interval": 10,
+        //"timeout": 30,
+        //"unknown-tag": "⚠",
+        //"format": "▶️ {title}",
+        //"format-paused": "⏸️ {title}",
+        //"format-stopped": "⏹️ mpd",
+        //"format-disconnected": "⚠ mpd",
+        //"on-click": "${HOME}/scripts/waybar/waybar-mpd.sh"
+    //},
+    "custom/keyboard": {
+        "on-click": "${HOME}/scripts/waybar/waybar-keyboard.sh layout; pkill -SIGRTMIN+10 waybar",
+        "on-click-right": "${HOME}/scripts/thinkpad/kbd_backlight.pl rotate",
+        "exec": "${HOME}/scripts/waybar/waybar-keyboard.sh bar",
+	"signal": 10,
+	"exec-on-event": true,
+        "return-type": "json",
+    },
+    "custom/rss": {
+        "interval": 3600,
+	"format": "\uf09e {}",
+        "return-type": "json",
+        "on-click": "${HOME}/scripts/waybar/waybar-rss.sh open",
+        "exec": "${HOME}/scripts/waybar/waybar-rss.sh bar"
+    },
+    "custom/weather": {
+        "interval": 600,
+        "return-type": "json",
+        "on-click": "xdg-open https://john.me.tz/weather/forecast",
+        "exec": "${HOME}/scripts/waybar/waybar-weather.sh"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": true,
+        "on-click": "${HOME}/scripts/waybar/waybar-cpu.sh"
+    },
+    "memory": {
+        "format": " {}%",
+        "on-click": "${HOME}/scripts/waybar/waybar-mem.sh"
+    },
+    "custom/disk": {
+        "format": "\uf0a0 {}",
+        "exec": "df /dev/dm-0 | tail -n 1 | awk {'print $5'}",
+        "on-click": "${HOME}/scripts/waybar/waybar-disk.sh"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C"
+    },
+    "backlight": {
+        "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": [ "\uf185" ],
+        "on-click": "notify-send $(brightnessctl info)",
+        "on-scroll-up": "${HOME}/scripts/waybar/waybar-backlight.sh up 1",
+        "on-scroll-down": "${HOME}/scripts/waybar/waybar-backlight.sh down 1",
+        "on-click-right": "${HOME}/scripts/waybar/waybar-backlight.sh"
+    },
+    "custom/battery": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "${HOME}/scripts/waybar/waybar-battery.sh bar",
+        "interval": 10,
+        "on-click": "${HOME}/scripts/waybar/waybar-battery.sh notify"
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon}{volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-scroll-up": "${HOME}/scripts/waybar/waybar-volume.sh up 1",
+        "on-scroll-down": "${HOME}/scripts/waybar/waybar-volume.sh down 1",
+        "on-click": "pavucontrol",
+        "on-click-right": "${HOME}/scripts/waybar/waybar-volume.sh mute-sink"
+    },
+    "custom/pkg": {
+        "interval": 360,
+        "tooltip-format": "<span font='Anonymous Pro 12'><big>{:%d %B}</big>\n<tt><small>{calendar}</small></tt></span>",
+        "on-click": "alacritty --config-file ~/.dotfiles/.config/alacritty/host.toml --class Alacritty-grave -e ${HOME}/scripts/waybar/waybar-pkg.sh upgrade",
+        "return-type": "json",
+        "exec": "${HOME}/scripts/waybar/waybar-pkg.sh bar"
+    },
+    "tray": {
+        "icon-size": 24,
+        "spacing": 0
+    },
+    "custom/wallpaper": {
+        "interval": 86400,
+        "exec": "echo '✶\nRotate wallpaper\nactive'",
+        "on-click": "${HOME}/scripts/sway/rotate-wallpaper.sh"
+    },
+    "custom/idle_mode": {
+        "interval": 1,
+        "return-type": "json",
+        "exec": "${HOME}/scripts/waybar/waybar-idle.sh",
+        "on-click": "${HOME}/scripts/sway/idle.sh mode",
+        "on-click-right": "${HOME}/scripts/sway/idle.sh toggle"
+    },
+    "custom/pomodoro": {
+        "interval": 1,
+        "on-click": "${HOME}/scripts/waybar/waybar-pomodoro.sh left",
+    	"on-click-right": "${HOME}/scripts/waybar/waybar-pomodoro.sh right",
+        "exec": "${HOME}/scripts/waybar/waybar-pomodoro.sh",
+        "return-type": "json"
+    },
+    "custom/clock": {
+        "interval": 60,
+        "on-click": "flatpak run org.mozilla.Firefox https://papillon.john.me.tz/calendar.php",
+        "return-type": "json",
+        "exec": "echo '{\"class\": \"clock\", \"text\": \"'$(date '+%H:%M')'\", \"tooltip\": \"'$(date '+%A, %B %d, %Y | %Y-%m-%d')'\"}'"
+    },
+    "custom/nc": {
+    	"tooltip": true,
+    	"format": "{icon}",
+    	"format-icons": {
+            "none": "",
+            "notification": "<span foreground=\"red\"><sup></sup></span>",
+            "dnd-none": "",
+            "dnd-notification": "<span foreground=\"red\"><sup></sup></span>",
+            "inhibited-notification": "<span foreground=\"red\"><sup></sup></span>",
+            "inhibited-none": " ",
+            "dnd-inhibited-notification": "<span foreground=\"red\"><sup></sup></span>",
+            "dnd-inhibited-none": " "
+    	},
+    	"return-type": "json",
+    	"exec": "swaync-client -swb",
+    	"exec-if": "which swaync-client",
+    	"on-click": "swaync-client --toggle-panel",
+    	"on-click-right": "swaync-client --toggle-dnd",
+    	"escape": true
+    }
+}
+]

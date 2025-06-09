@@ -1,0 +1,9 @@
+[Unit]
+Description=Mute audio for "Speaker" sinks
+Conflicts=unmute-audio.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/var/home/%u/scripts/audio/mute.pl sleep
+ExecStop=/var/home/%u/scripts/audio/mute.pl wake

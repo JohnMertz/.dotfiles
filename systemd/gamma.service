@@ -1,0 +1,12 @@
+[Unit]
+Description=Inverting eInk contrast
+
+[Service]
+#WorkingDirectory=/var/home/%u/.local/state
+ExecStart=/var/home/%u/.local/bin/wl-gammactl -c -1.000 -b 2.000 -g 0.500 -m DP-1
+Restart=always
+TimeoutSec=5
+
+[Install]
+#WantedBy=graphical.target
+WantedBy=default.target

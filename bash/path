@@ -1,0 +1,67 @@
+#!/bin/bash
+# vim: ft=sh
+
+# Local user bin
+if [ -d "$HOME/bin" ]; then
+	PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+	PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/share/bin" ]; then
+	PATH="$HOME/.local/share/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/share/applications" ] ; then
+	PATH="$HOME/.local/share/applications/:$PATH"
+fi
+
+# Nix Packages
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+	source $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
+
+# Perl plenv 
+if [ -d "$HOME/.plenv/bin" ]; then
+	export PATH="$HOME/.plenv/bin:$PATH"
+fi
+
+# Private scripts
+if [ -d "$HOME/.private-scripts" ]; then
+	PATH="$HOME/.private-scripts:$PATH"
+fi
+
+# Public scripts
+if [ -d "$HOME/scripts" ]; then
+	PATH="$HOME/scripts:$PATH"
+fi
+
+# Go
+PATH="${HOME}/go/bin:$PATH"
+
+# Perl
+PATH="${HOME}/perl5/bin:$PATH"
+
+# Python
+export PYENV_ROOT="$HOME/.pyenv"
+PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+	eval "$(pyenv init -)"
+fi
+for dir in `find ${HOME}/.pyenv/versions/* -maxdepth 0`; do
+	PATH="$PATH:${dir}/bin"
+done
+
+# Rust
+PATH="${HOME}/.cargo/bin:$PATH"
+
+if [ -f "/run/.containerenv" ]; then
+	source "$HOME/.dotfiles/bash/path.distrobox"
+else
+	source "$HOME/.dotfiles/bash/path.host"
+fi
+
+# Export PATH
+export PATH="$PATH"

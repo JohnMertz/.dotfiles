@@ -1,0 +1,17 @@
+general.import = ["/var/home/jpm/.dotfiles/.config/alacritty/alacritty.toml", "/var/home/jpm/.dotfiles/.config/alacritty/debian.toml"]
+
+[env]
+TERM_TITLE = "Alacritty (Debian Ephemeral)"
+
+[terminal.shell]
+args = ["ephemeral", "-i", "debian:bookworm"]
+program = "/usr/bin/distrobox"
+
+[window]
+title = "Alacritty - Debian (Ephemeral)"
+
+[window.class]
+general = "Alacritty-debian-ephemeral"
+instance = "Alacritty-debian-ephemeral"
+
+[terminal]

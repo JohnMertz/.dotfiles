@@ -1,0 +1,6 @@
+[Unit]
+Description=Set desired keyboard backlight brightnesss to 0
+
+[Service]
+Type=oneshot
+ExecStart=/var/home/jpm/scripts/thinkpad/kbd_backlight.pl 0

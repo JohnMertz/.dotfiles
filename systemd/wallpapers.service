@@ -1,0 +1,13 @@
+[Unit]
+Description=Rotate through cropped wallpapers for %u
+
+[Service]
+Type=forking
+PIDFile=/var/home/%u/.local/state/wallpaper.pid
+WorkingDirectory=/var/home/%u/scripts/sway
+ExecStart=/var/home/%u/.plenv/shims/perl /var/home/%u/scripts/sway/wallpaper.pl -d
+Restart=always
+TimeoutSec=5
+
+[Install]
+WantedBy=default.target

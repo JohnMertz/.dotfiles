@@ -1,0 +1,4 @@
+# vim: ft=sh
+
+export DISTROBOX=$(grep -oP "(?<=name=\")[^\";]+" /run/.containerenv)
+HISTFILE="${HISTFILE}.$DISTROBOX"

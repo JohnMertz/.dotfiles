@@ -1,0 +1,18 @@
+# vim: ft=sh
+
+## Configure static SSH Agent
+export SSH_AUTH_SOCK="$HOME/.local/state/ssh-agent.sock"
+if [ -e "$SSH_AUTH_SOCK" ]; then
+	rm "$SSH_AUTH_SOCK"
+fi
+if [ -e "$HOME/.local/state/ssh-agent.env" ]; then
+	rm "$HOME/.local/state/ssh-agent.env"
+fi
+if [[ "$(pgrep ssh-agent)" ]]; then
+	pkill ssh-agent
+fi
+. ${HOME}/scripts/ssh-agent.sh
+
+# Static/predictable Sway socket
+export SWAYSOCK="$HOME/.local/state/sway-ipc.sock"
+#export SWAYSOCK="`sway --get-socketpath`"

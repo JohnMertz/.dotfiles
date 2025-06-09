@@ -1,0 +1,10 @@
+[Unit]
+Description=Give ownership of backlight level to 'backlight' group
+
+[Service]
+ExecStartPre=sudo chown root:backlight /sys/class/backlight/intel_backlight/brightness
+ExecStart=sudo chmod 664 /sys/class/backlight/intel_backlight/brightness
+#ExecStart=/var/home/jpm/scripts/sway/blc.pl -d
+
+[Install]
+WantedBy=default.target

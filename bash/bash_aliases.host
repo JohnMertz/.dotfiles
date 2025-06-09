@@ -1,0 +1,9 @@
+# vim: ft=sh
+
+alias butane='podman run --rm --interactive       \
+              --security-opt label=disable        \
+              --volume ${PWD}:/pwd --workdir /pwd \
+              quay.io/coreos/butane:release'
+alias upgrade="$(alias upgrade | cut -d"'" -f 2); flatpak --user upgrade -y; flatpak --user uninstall --unused"
+alias flatpak="flatpak --user" # Install and run all apps as user
+alias fprun="${HOME}/scripts/sway/flatpak-run.pl" # Simplified flatpak run script

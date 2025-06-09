@@ -1,0 +1,4 @@
+# Ubuntu is basically just Debian, so source those aliases first
+if [ -e ${HOME}/.dotfiles/bash/bash_aliases.debian ]; then
+    source ${HOME}/.dotfiles/bash/bash_aliases.debian
+fi

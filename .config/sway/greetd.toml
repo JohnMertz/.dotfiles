@@ -1,0 +1,10 @@
+[terminal]
+vt = 1
+
+[default_session]
+command = "sway --config /var/home/jpm/.dotfiles/.config/sway/greetd-config"
+user = "_greetd"
+
+[initial_session]
+command = "sway"
+user = "jpm"

@@ -1,0 +1,92 @@
+#Background color
+color=01010100
+
+#Sets the color of backspace highlight segments.
+bs-hl-color=cc241dff
+
+#Sets the color of backspace highlight segments when Caps Lock is active.
+caps-lock-bs-hl-color=ffffffff
+
+#Sets the color of the key press highlight segments when Caps Lock is active.
+caps-lock-key-hl-color=d79921ff
+
+#Sets the color of the inside of the indicator.
+inside-color=000000ff
+
+#Sets the color of the inside of the indicator when cleared.
+inside-clear-color=000000ff
+
+#Sets the color of the inside of the indicator when Caps Lock is active.
+inside-caps-lock-color=000000ff
+
+#Sets the color of the inside of the indicator when verifying.
+inside-ver-color=000000ff
+
+#Sets the color of the inside of the indicator when invalid.
+inside-wrong-color=000000ff
+
+#Sets the color of the key press highlight segments.
+key-hl-color=458588ff
+
+#Sets the background color of the box containing the layout text.
+layout-bg-color=000000ff
+
+#Sets the color of the border of the box containing the layout text.
+layout-border-color=000000ff
+
+#Sets the color of the layout text.
+layout-text-color=a89984ff
+
+#Sets the color of the line between the inside and ring.
+line-color=a89984ff
+
+#Sets the color of the line between the inside and ring when cleared.
+line-clear-color=a89984ff
+
+#Sets the color of the line between the inside and ring when Caps Lock is active.
+line-caps-lock-color=a89984ff
+
+#Sets the color of the line between the inside and ring when verifying.
+line-ver-color=a89984ff
+
+#Sets the color of the line between the inside and ring when invalid.
+line-wrong-color=cc241dff
+
+#Use the inside color for the line between the inside and ring.
+#line-uses-inside
+
+#Use the ring color for the line between the inside and ring.
+#line-uses-ring
+
+#Sets the color of the ring of the indicator when typing or idle.
+ring-color=282828ff
+
+#Sets the color of the ring of the indicator when cleared.
+ring-clear-color=a89984ff
+
+#Sets the color of the ring of the indicator when Caps Lock is active.
+ring-caps-lock-color=ff0000ff
+
+#Sets the color of the ring of the indicator when verifying.
+ring-ver-color=68986aff
+
+#Sets the color of the ring of the indicator when invalid.
+ring-wrong-color=cc241dff
+
+#Sets the color of the lines that separate highlight segments.
+separator-color=282828ff
+
+#Sets the color of the text.
+text-color=0000ffff
+
+#Sets the color of the text when cleared.
+text-clear-color=a89984ff
+
+#Sets the color of the text when Caps Lock is active.
+text-caps-lock-color=d79921ff
+
+#Sets the color of the text when verifying.
+text-ver-color=68986aff
+
+#Sets the color of the text when invalid.
+text-wrong-color=cc241dff

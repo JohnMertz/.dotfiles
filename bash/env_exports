@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Static SSH agent
+export SSH_AUTH_SOCK="$HOME/.local/state/ssh-agent.sock"
+
+# YDoTool socket
+export YDOTOOL_SOCKET="/tmp/.ydotool_socket"
+
+# GUI themes
+export GTK_THEME="Gruvbox"
+export ICON_THEME="Gruvbox"
+export CURSOR_THEME="FlatbedCursors-White"
+export PROFILE_NAME="Oled"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORM="wayland-egl;wayland;xcb"
+export GDK_BACKEND="wayland"
+export DCONF=".config/dconf/user"
+export GSK_RENDERER="gl"
+
+# Setup editor
+export EDITOR="nvim"
+
+# Android configs
+export JDK_HOME=/etc/java
+export STUDIO_JDK=/usr/lib/jvm/jre-openjdk
+
+# Locales
+export LANG="C.UTF-8"
+export LC_ALL="C.UTF-8"
+export LC_CTYPE="C.UTF-8"
+export LANGUAGE="en_US:en"
+
+# Terminal type
+export TERM="xterm" # Necessary for proper line reversing in SSH connection
+# This is an attempt to get tofi to run `TERMINAL=true` .desktop applications in alacritty
+export TERMINAL="alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/host.toml -e"
+

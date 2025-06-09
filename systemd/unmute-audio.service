@@ -1,0 +1,6 @@
+[Unit]
+Description=Unmute audio for "Speaker" sinks
+
+[Service]
+Type=oneshot
+ExecStart=/bin/echo '' >/dev/null

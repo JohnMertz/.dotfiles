@@ -1,0 +1,385 @@
+@import "gruvbox.css";
+/*
+ * Available colours
+ * black
+ * white
+ * fg
+ * fghi
+ * bg
+ * bghi
+ * grey00 = bghi
+ * grey01 = bg
+ * grey02
+ * grey03
+ * grey04
+ * grey05
+ * grey06
+ * grey07
+ * grey08
+ * grey09
+ * grey10 = fg
+ * grey11 = fghi
+ * red
+ * green
+ * yellow
+ * blue
+ * purple
+ * orange
+ * aqua
+ * redhi
+ * greenhi
+ * yellowhi
+ * bluehi
+ * purple hi
+ * aquahi
+ * orangehi
+ * alert = orange
+ * warning = orangehi
+ */
+
+/* Global/Multi */
+
+* {
+    font-family: "Anonymice Nerd Font", "Font Awesome 6 Brands", "Font Awesome 6 Free", Monospace;
+    font-size: 14.25px;
+    min-height: 0;
+}
+
+window#waybar {
+    margin: -5px;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    color: @fg;
+    border-bottom: solid 1px @fg;
+    border-top: solid 1px @fg;
+}
+
+/* Right */
+
+#window,
+#custom-weather,
+#custom-rss,
+#custom-mpd,
+#custom-keyboard,
+#backlight,
+#cpu,
+#memory,
+#custom-disk,
+#temperature,
+#pulseaudio,
+#custom-battery,
+#tray,
+#custom-wallpaper,
+#custom-pkg,
+#custom-pomodoro,
+#custom-clock,
+#custom-idle_mode,
+#custom-nc {
+    border-top: solid 1px @fg;
+    border-bottom: solid 1px @fg;
+    margin: 0px;
+    padding-left: 5px;
+}
+
+/* Left-most modules */
+
+#custom-keyboard,
+#backlight,
+#tray {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-left: 1px solid @fg;
+    padding-left: 5px;
+}
+
+/* Misc */
+
+#custom-rss,
+#custom-weather,
+#custom-mpd,
+#custom-keyboard {
+    color: @bluehi;
+    background: @grey01;
+}
+
+/* Status area */
+
+#backlight,
+#cpu,
+#memory,
+#custom-disk,
+#temperature,
+#pulseaudio,
+#custom-battery {
+    color: @yellowhi;
+    background: @grey02;
+}
+
+/* Tray */
+
+#tray,
+#custom-wallpaper,
+#custom-pkg,
+#custom-idle_mode {
+    background: @grey03;
+    color: @bluehi;
+}
+
+/* Workspaces */
+
+#workspaces {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: @grey02;
+}
+
+#workspaces button,
+#mode {
+    border: solid 1px @fg;
+    border-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: @white;
+    padding: 0px;
+    margin: 0px;
+    background: none;
+    margin-right: -12px;
+    padding-left: 6px;
+}
+
+#workspaces button:first-child {
+    padding-left: 5px;
+}
+
+#workspaces button:last-child {
+    margin-right: 0px;
+}
+
+#workspaces button.visible {
+    color: @white;
+}
+
+#workspaces button.focused {
+    color: @orangehi;
+    border-color: @orangehi;
+    font-weight: bold;
+}
+
+#workspaces button.urgent,
+#mode {
+    color: @redhi;
+    border-color: @redhi;
+    font-weight: bold;
+}
+
+/* Mode */
+
+#mode {
+    background-color: @grey01;
+    padding-right: 7px;
+}
+
+/* Window title */
+
+window#waybar.empty #window {
+    background: none;
+}
+
+#window {
+    color: @fg;
+    margin: 0px 10px;
+    padding: 0px 20px;
+    background: linear-gradient(90deg, @bg 0%, @grey03 3%, @grey03 97%, @bg 100%);
+}
+
+/* Keyboard */
+
+#custom-keyboard {
+    padding-left: 5px;
+}
+
+#custom-keyboard.alternate {
+    color: @orange;
+}
+
+/* Weather */
+
+#custom-weather {
+    color: @bluehi;
+    border-radius: 0px;
+    padding-right: 4px;
+}
+
+/* MPD */
+
+#mpd {
+    color: @fg;
+}
+
+/* Backlight */
+
+#backlight {
+    color: @yellowhi;
+}
+
+/* CPU */
+
+#cpu {
+    color: @greenhi;
+}
+
+/* Memory */
+
+#memory {
+    color: @purplehi;
+}
+
+/* Disk */
+
+#custom-disk {
+    color: @orangehi;
+}
+
+/* Temperature */
+
+#temperature {
+    color: @yellowhi;
+}
+
+#temperature.critical {
+    color: @redhi;
+}
+
+/* Pulseaudio */
+
+#pulseaudio {
+    color: @bluehi;
+}
+
+#pulseaudio.muted {
+    color: @grey06;
+}
+
+/* Battery */
+
+#custom-battery {
+    color: @green;
+    padding-right: 12px;
+}
+
+#custom-battery.charging {
+    padding-top: 2px;
+}
+
+#custom-battery.discharging {
+    color: @yellow;
+}
+
+#custom-battery.low {
+    color: @orange;
+}
+
+#custom-battery.critical {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    color: @redhi;
+}
+
+/* Tray */
+
+#tray {
+    margin-left: -8px;
+    margin-right: -4px;
+}
+
+/* Wallpaper rotation */
+
+#custom-wallpaper {
+    padding: 0px;
+    font-size: 16px;
+}
+
+/* Package upgrades */
+
+#custom-pkg {
+    margin-bottom: -3px;
+}
+
+#custom-pkg.updateable {
+    color: @orange;
+}
+
+/* Idle Mode */
+
+#custom-idle_mode {
+    font-family: "Font Awesome 6 Brands", "Font Awesome 6 Free";
+    padding-right: 5px;
+    margin-left: -3px;
+}
+
+#custom-idle_mode.none {
+    color: @orangehi;
+}
+
+/* Pomodoro */
+
+#custom-pomodoro {
+    color: @fg;
+    background: @bg;
+    border-left: solid 1px @fg;
+    margin: 0px;
+    padding-right: 0px;
+}
+
+#custom-pomodoro.pomodoro-running {
+    color: @bg;
+    background: @yellow;
+    padding-right: 5px;
+    border-right: solid 1px @fg;
+}
+
+#custom-pomodoro.pomodoro-paused {
+    color: @redhi;
+    padding-right: 5px;
+    border-right: solid 1px @fg;
+}
+
+#custom-pomodoro.pomodoro-done {
+    background: @green;
+    padding-right: 5px;
+    border-right: solid 1px @fg;
+}
+
+/* Clock */
+
+#custom-clock {
+    color: @fg;
+    background: @bg;
+    border-left: none;
+    border-right: solid 1px #fff;
+    margin: 0px;
+    padding-right: 5px;
+}
+
+/* Notifications */
+
+#custom-nc {
+    font-family: "NotoSansMono Nerd Font";
+    background: @grey06;
+    margin: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    background: @fg;
+    color: @bg;
+}
+
+#custom-nc.dnd-none,
+#custom-nc.dnd-notification {
+    background: @grey03;
+    color: @fg;
+}

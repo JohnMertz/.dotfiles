@@ -1,0 +1,35 @@
+# vim: ft=sh
+
+systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+
+# Load aliases
+source "${HOME}/.dotfiles/bash/bash_aliases"
+
+export LANG="C"
+export LC_ALL="C"
+export LC_CTYPE="C"
+export LANGUAGE="en_US:en"
+
+# Dirty config dir
+export XDG_DATA_HOME="${HOME}/.config"
+
+# GUI themes
+export GTK_THEME="Gruvbox"
+export ICON_THEME="Gruvbox"
+export CURSOR_THEME="FlatbedCursors-White"
+export PROFILE_NAME="Oled"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORM="wayland-egl;wayland;xcb"
+export GDK_BACKEND="wayland"
+export DCONF=".config/dconf/user"
+
+# Suggest session start command if last session is not known
+if [ ! -e "${HOME}/.local/state/last_login_gui" ]; then
+    echo "Use 'startsway' or 'starti3' to launch a GUI"
+fi
+
+if [ -f "/run/.containerenv" ]; then
+    source "$HOME/.dotfiles/bash/bash_login.distrobox"
+else
+    source "$HOME/.dotfiles/bash/bash_login.host"
+fi

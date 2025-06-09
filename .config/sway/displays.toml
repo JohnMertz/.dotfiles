@@ -1,0 +1,55 @@
+[outputs]
+TV = { make = "DENON, Ltd.", model = "DENON-AVAMP", width = 3840, height = 2160, serial = "0x00000000" }
+eInk = { make = "Unknown", model = "Paperlike253", width = 3200, height = 1800 }
+yoga = { make = "Lenovo Group Limited", model = "0x4140", width = 2560, height = 1440 }
+
+[layouts]
+    [layouts.TV]
+        [layouts.TV.TV]
+        active = true
+        mode = { width = 3840, height = 2160 }
+        scale = 1.333333
+        transform = 0
+        x = 0
+        y = 0
+        waybar = "~/.dotfiles/.config/waybar/main.template"
+        fallback = "#010101"
+    [layouts.eInk]
+        [layouts.eInk.eInk]
+        active = true
+        mode = { width = 3200, height = 1800 }
+        scale = 2
+        transform = 90
+        x = 0
+        y = 0
+        waybar = ".dotfiles/.config/waybar/side.template"
+        fallback = "#010101"
+    [layouts.detached]
+        [layouts.detached.yoga]
+        active = 1
+        mode = { width = 2560, height = 1440 }
+        scale = 1.333333
+        transform = 0
+        x = 0
+        y = 0
+        waybar = ".dotfiles/.config/waybar/main.template"
+        fallback = "#010101"
+    [layouts.Both]
+        [layouts.Both.TV]
+        active = 1
+        mode = { width = 3840, height = 2160 }
+        scale = 1.333333
+        transform = 0
+        x = 900
+        y = 10
+        waybar = ".dotfiles/.config/waybar/main.template"
+        fallback = "#010101"
+        [layouts.Both.eInk]
+        enable = 1
+        mode = { width = 3200, height = 1800 }
+        scale = 2
+        transform = 90
+        x = 0
+        y = 0
+        waybar = ".dotfiles/.config/waybar/side.template"
+        fallback = "#010101"

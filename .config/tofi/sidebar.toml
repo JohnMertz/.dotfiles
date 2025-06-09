@@ -1,0 +1,29 @@
+# Functions
+drun-launch=true
+terminal="alacritty --config-file /var/home/.dotfiles/.config/alacritty/host.toml -e"
+physical-keybindings=false
+
+# Box
+anchor=left
+width=300
+
+# Spacing
+padding-top=0
+padding-right=0
+padding-left=0
+padding-bottom=0
+border-width=0
+outline-width=0
+selection-background-padding=0,5
+
+# Text
+font-size=11
+font="monospace"
+#font="Anonymice Nerd Font Mono"
+
+# Color
+text-color=EBDBB2
+background-color=282828
+selection-background=EBDBB2
+selection-color=282828
+selection-match-color=CC240A

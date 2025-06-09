@@ -1,0 +1,111 @@
+# vim: ft=sh
+
+################################################################################
+# Hardware
+################################################################################
+
+# When using a 2-button mouse, simulate button 3 with simultaneous press
+input * middle_emulation enable
+
+# Hide cursor after 5 seconds
+seat seat0 hide_cursor 5000
+
+# Move cursor to center of container when switching
+mouse_warping container
+
+# Disable mouse as trigger to wake from idle
+#seat * idle_inhibit keyboard switch
+
+# Custom hardware configuration. Symlink to dedicated file for this hardware.
+include $HOME/.dotfiles/.config/sway/devices
+
+# Key repeat values
+input * repeat_delay 300
+input * repeat_rate 30
+
+################################################################################
+# Appearance
+################################################################################
+
+seat seat0 xcursor_theme FlatbedCursors-White
+
+# Minimize borders from all windows
+hide_edge_borders both
+default_floating_border pixel 1
+default_border pixel 1
+
+# Font only visible in tabbed mode. Also inheritted by bar.
+font pango:Anonymous Pro 11
+
+# Start Waybar with IPC functionality (requires waybar>=0.9.9, wlroots>=0.15)
+bar bar-1 {
+    swaybar_command waybar -c $HOME/.config/waybar/config
+    icon_theme Gruvbox
+    #mode hide
+}
+
+# Gaps are a dumb waste of space, especially on a small display
+gaps inner 0
+gaps outer 0
+
+# Color definitions
+include $HOME/.dotfiles/.config/sway/colorscheme
+
+# Assign colors to elements (TODO: actually name the colors for better readability)
+client.background       $bg
+
+# Property Name         Border      Background  Text        Hilight     Child Border
+client.focused          $orangehi   $grey02     $orangehi   $orangehi   $orangehi
+client.focused_inactive $orangehi   $grey02     $fg         $fg         $white
+client.unfocused        $fg         $bg         $fg         $fg         $grey07
+client.urgent           $redhi      $grey02     $redhi      $redhi      $fg
+client.placeholder      $yellow     $grey07     $blue       $blue       $fg
+# Feature request (https://github.com/swaywm/sway/pull/7208)
+#client.sticky           $rylw   $rylw   $rylw   $rylw   $rylw
+#client.sticky_inactive  $rmgt   $rmgt   $rmgt   $rmgt   $rmgt
+#client.sticky_unfocused $rcyn   $rcyn   $rcyn   $rcyn   $rcyn
+
+################################################################################
+# Bindings
+################################################################################
+
+# Set super key to Windows/Super key
+set $mod Mod4
+
+### Load keybindings
+include $HOME/.dotfiles/.config/sway/bindings
+
+################################################################################
+# Behaviour
+################################################################################
+
+# Allow movement of floating windows with Left Click+Drag
+floating_modifier $mod
+
+# X window 'activation' should just make a window 'urgent' instead of 'focused'
+focus_on_window_activation urgent
+
+# Load special window behaviours
+include $HOME/.dotfiles/.config/sway/behaviours
+
+################################################################################
+# Start-up Applications
+################################################################################
+
+# Configure XDG desktop portal
+exec systemctl --user import-environment \
+     DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd \
+     DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec systemctl --user start xdg-desktop-portal-wlr.service
+exec systemctl --user start wallpapers.service
+
+include $HOME/.dotfiles/.config/sway/autostart
+
+################################################################################
+# Overrides
+################################################################################
+
+# Additional overrides. Symlink to dedicated file for this hardware.
+include $HOME/.dotfiles/.config/sway/overrides

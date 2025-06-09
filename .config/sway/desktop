@@ -1,0 +1,8 @@
+# vim: ft=sh
+
+# Add configurations specialized for desktop use here.
+# Symlink to $HOME/.dotfiles/.config/sway/overrides to enable
+
+# Desktop has a large enough display to make use of some gaps
+gaps inner 10
+gaps outer 10

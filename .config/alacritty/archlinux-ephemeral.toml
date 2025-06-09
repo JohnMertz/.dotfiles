@@ -1,0 +1,17 @@
+general.import = ["/var/home/jpm/.dotfiles/.config/alacritty/alacritty.toml", "/var/home/jpm/.dotfiles/.config/alacritty/archlinux.toml"]
+
+[env]
+TERM_TITLE = "Alacritty (Archlinux Ephemeral)"
+
+[terminal.shell]
+args = ["ephemeral", "-i", "archlinux"]
+program = "/usr/bin/distrobox"
+
+[window]
+title = "Alacritty - Archlinux (Ephemeral)"
+
+[window.class]
+general = "Alacritty-archlinux-ephemeral"
+instance = "Alacritty-archlinux-ephemeral"
+
+[terminal]

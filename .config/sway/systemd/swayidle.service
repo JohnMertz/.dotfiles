@@ -1,0 +1,13 @@
+[Unit]
+Description=Swayidle to trigger idle actions
+Documentation=man:swayidle(1)
+PartOf=graphical-session.target
+After=sway.service
+
+[Service]
+Type=simple
+ExecStart=/var/home/jpm/scripts/sway/idle.sh start
+ExecStop=/var/home/jpm/scripts/sway/idle.sh stop
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,0 +1,1 @@
+ACTION=="change", SUBSYSTEM=="typec", RUN+="/dev/home/jpm/scripts/thinkpad/power-plug.sh"

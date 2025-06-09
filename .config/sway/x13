@@ -1,0 +1,43 @@
+# vim: ft=sh
+
+# X13 device configurations
+
+################################################################################
+# Keyboard
+################################################################################
+
+# Map touchscreen to output
+input 1386:21128:Wacom_HID_5288_Finger map_to_output eDP-1
+
+# I use a Dvorak keyboard, like a weirdo
+input * xkb_layout "us,us"
+input * xkb_variant "dvorak,"
+input * xkb_options "grp:win_space_toggle, caps:swapescape, compose:ralt"
+
+################################################################################
+# Mouse
+################################################################################
+
+# TrackPoint acceleration
+input 1133:49291:Logitech_G502_HERO_SE accel_profile flat
+input 1133:49291:Logitech_G502_HERO_SE pointer_accel -0.966
+
+################################################################################
+# Touchscreen
+################################################################################
+
+# Map touchscreen to output
+input 1386:20615:Wacom_Pen_and_multitouch_sensor_Pen map_to_output eDP-1
+input 1386:20615:Wacom_Pen_and_multitouch_sensor_Finger map_to_output eDP-1
+
+# Enable On-Screen Keyboard when entering tablet mode
+# bindswitch [lib|tablet]:[on|off|toggle]
+bindswitch --reload tablet:on exec ${HOME}/scripts/thinkpad/tablet_mode.sh on ; busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
+bindswitch --reload tablet:off exec ${HOME}/scripts/thinkpad/tablet_mode.sh off ; busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b false
+
+################################################################################
+# Lid switch
+################################################################################
+
+# Restore display configuration on reload
+bindswitch --reload lid:on /home/jpm/scripts/sway/displays.pl detached

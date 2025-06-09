@@ -1,0 +1,112 @@
+set nocompatible            " iMproved only, no vi compatibility
+set sessionoptions-=options " stop sessions from messing with 'runtimepath'
+
+syntax on
+filetype plugin indent on
+
+set backspace=indent,eol,start
+set incsearch
+set scrolloff=1000          " Center cursor, unless near edge
+
+" Colorize and theme
+set t_Co=16
+let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_italic=1
+let g:gruvbox_bold=1
+let g:gruvbox_underline=1
+let g:gruvbox_undercurl=1
+let g:gruvbox_termcolors=256
+set background=dark
+colorscheme gruvbox
+autocmd vimenter * colorscheme gruvbox
+" colorscheme autoload/lightline/colorscheme/gruvbox.vim
+" colorscheme base16-gruvbox-dark-hard
+
+set ttyfast
+
+set termguicolors
+set laststatus=2
+set guioptions-=e
+set encoding=utf-8
+set autoread
+set autoindent
+set hlsearch
+
+set number
+set noswapfile
+set title
+
+syn on se title
+set ts=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+" Show tabs and trailing spaces
+set list listchars=tab:»\ ,trail:·
+
+set spelllang=en_ca
+
+" Strip whitespace on save
+fun! <SID>StripTrailingWhitespaces()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfun
+
+"command -nargs=0 Stripwhitespace :call <SID>StripTrailingWhitespaces()
+
+" Fix indentation in file
+map <leader>i mmgg=G`m<CR>
+
+" Toggle highlighting of search results
+nnoremap <leader><space> :nohlsearch<cr>
+
+" Unsmart Quotes
+nnoremap guq :%s/\v[“”]/"/g<cr>
+
+if has("autocmd")
+  " StripTrailingWhitespaces
+  " TODO: autocmd BufWritePre * DeleteTrailingWhitespace
+
+" To spell check all git commit messages
+  au BufNewFile,BufRead COMMIT_EDITMSG set spell nonumber nolist wrap linebreak
+
+  " Set filetype tab settings
+  autocmd FileType python,doctest set ai ts=4 sw=4 sts=4 et
+
+  autocmd BufReadPost *
+  \ if line("'\"") > 1 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
+endif
+
+" 100 characters line
+set colorcolumn=101
+"execute "set colorcolumn=" . join(range(101,335), ',')
+highlight ColorColumn ctermbg=Black ctermfg=DarkRed
+
+" Highlight trailing spaces
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Configure tabline
+set showtabline=2
+let g:tablabel =
+      \ "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
+
+" Python
+au FileType python set ts=4 sts=4 et sw=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+source ${HOME}/.dotfiles/.config/vim/abbreviations/personalAbbreviations.vim
+source ${HOME}/.dotfiles/.config/vim/abbreviations/codingAbbreviations.vim

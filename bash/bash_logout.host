@@ -1,0 +1,13 @@
+# vim: ft=sh
+
+if [ ! "$SSH_TTY" ]; then
+    # Remove socket files
+    rm "$SSH_AUTH_SOCK"
+    rm "$HOME/.local/state/ssh-agent.env"
+    rm "$SWAYSOCK"
+fi
+
+# when leaving the console clear the screen to increase privacy
+if [ "$SHLVL" = 1 ]; then
+    [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
+fi

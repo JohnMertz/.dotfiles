@@ -1,0 +1,10 @@
+[Unit]
+Description=Take ownership of necessary system files for other SystemD scripts
+
+[Service]
+Type=oneshot
+ExecStart=+chown jpm:jpm /sys/class/leds/tpacip::kbd_backlight/brightness
+ExecStart=+chown jpm:jpm /tmp/.ydotool_socket
+
+[Install]
+WantedBy=user@1000.service

@@ -1,0 +1,11 @@
+# vim: ft=sh
+
+# Add snaps and flatpaks to path
+export XDG_DATA_DIRS="$XDG_DATA_DIRS:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/var/lib/flatpak/exports/share"
+
+# Add distrobox exports
+for i in $(find $HOME/scripts/distrobox -maxdepth 1); do
+    if [ -d "$i" ]; then
+        PATH="$i:$PATH"
+    fi
+done

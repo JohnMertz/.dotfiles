@@ -1,0 +1,60 @@
+general.import = ["/var/home/jpm/.dotfiles/.config/alacritty/alacritty.toml"]
+
+[colors.bright]
+black = "#093A53"
+blue = "#45DAC1"
+cyan = "#45A8DA"
+green = "#A8DA45"
+magenta = "#DA45A8"
+red = "#DA7645"
+white = "#FEFEFE"
+yellow = "#DAA845"
+
+[colors.normal]
+black = "#041D29"
+blue = "#17D1B2"
+cyan = "#1793D1"
+green = "#93D117"
+magenta = "#D11793"
+red = "#D15517"
+white = "#D0E9F5"
+yellow = "#D19317"
+
+[colors.primary]
+background = "#171421"
+foreground = "#D0CFCC"
+
+[env]
+TERM_TITLE = "Alacritty (Archlinux)"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "LiterationMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "LiterationMono Nerd Font"
+style = "SemiBold"
+
+[font.italic]
+family = "LiterationMono Nerd Font"
+style = "Light"
+
+[font.normal]
+family = "LiterationMono Nerd Font"
+style = "Regular"
+
+[terminal.shell]
+args = ["enter", "archlinux"]
+program = "/usr/bin/distrobox"
+
+[window]
+title = "Alacritty - Archlinux (Distrobox)"
+
+[window.class]
+general = "Alacritty-archlinux"
+instance = "Alacritty-archlinux"
+
+[terminal]

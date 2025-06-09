@@ -1,0 +1,100 @@
+# vim: ft=sh
+
+################################################################################
+# Default workspaces
+################################################################################
+
+# ` - Grave
+assign [app_id="Alacritty-grave"] grave
+
+# 0 - HUD
+assign [app_id="chrome-papillon.john.me.tz__-Default"] 0
+
+# 1 - Chat
+assign [app_id="com.mattermost.Desktop"] 1
+for_window [app_id="Mattermost"] layout tabbed
+assign [class="discord"] 1
+for_window [class="Mattermost"] layout tabbed
+
+# 2 - Mail - Thunderbird seems to change the way it identifies with every update!
+assign [app_id="org.mozilla.Thunderbird"] 2
+
+# 3 - Secondary Browser
+assign [app_id="io.github.ungoogled_software.ungoogled_chromium"] 3
+
+# 4 - Git
+assign [app_id="com.github.gittyup.gittyup"] 4
+
+# 5 - Phone (TODO: pick something more useful)
+assign [class="linphone"] 5
+
+# 6 - Terminals (not auto-assigned since they are needed elsewhere)
+#
+# 7 - Browser
+assign [app_id="firefox"] 7
+
+# 8 - IDE
+assign [app_id="neovide"] 8
+
+# 9 - Misc
+
+################################################################################
+# Floating windows
+################################################################################
+
+# Disable "sticky" (follow focused workspace) by default
+for_window [title=".*"] sticky disable
+
+# Child Thunar windows (such as file transfer dialogs) should be floating
+for_window [app_id="thunar"] floating enable
+for_window [title=".* Thunar"] floating disable
+
+# Gnome software doesn't tile well
+for_window [app_id="org.gnome.Software"] floating enable
+
+# SSH auth dialog
+for_window [title="SSH Passphrase"] floating enable
+
+# Picture-in-picture firefox windows floating and stickied
+for_window [title="^Picture-in-Picture$"] floating enable
+for_window [title="^Picture-in-Picture$"] sticky enable
+
+# Todo list as pop-up in bottom-right corner
+for_window [title="todotxt-machine"] floating enable, resize set height 600px, resize set width 800px, move position 990px 400px
+
+# Gvim reserved for temporarily opening text documents in a pop-up window (such as from browser downloads)
+for_window [class="Gvim"] floating enable
+
+# Float pulseaudio controls as sidebar
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, resize set height 1080px, resize set width 625px, move position 1080px -2px
+
+# Network manager does not tile well
+for_window [app_id="nm-connection-editor"] floating enable
+
+# Misc
+for_window [instance="Download"] floating enable
+for_window [window_role="plugin_ui"] floating enable
+for_window [title="Menu Update"] floating enable
+for_window [title="___"] floating enable
+
+################################################################################
+# Window titles
+################################################################################
+
+# Mark all windows with wayland app_id to make creating window rules easier
+# Otherwise use 'swaymsg -t get_tree | less'
+for_window [shell="."] title_format "%title (%app_id)"
+
+# Override legacy windows running in Xwayland which don't have an app_id
+for_window [shell="xwayland"] title_format "%title [XWayland]"
+
+################################################################################
+# Misc behaviour
+################################################################################
+
+# Prevent idle when application is fullscreened
+for_window [class="."] inhibit_idle fullscreen
+for_window [app_id="."] inhibit_idle fullscreen
+
+# Maintain 'urgency' for 1 second
+force_display_urgency_hint 1000 ms

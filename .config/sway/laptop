@@ -1,0 +1,4 @@
+# vim: ft=sh
+
+# Add configurations specialized for laptop use here.
+# Symlink to $HOME/.dotfiles/.config/sway/overrides to enable

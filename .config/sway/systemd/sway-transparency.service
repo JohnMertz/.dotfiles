@@ -1,0 +1,14 @@
+[Unit]
+Description=Sway window transparency daemon
+PartOf=graphical-session.target
+After=sway.service
+
+[Service]
+Type=simple
+ExecStart=/var/home/jpm/scripts/distrobox/debian12/sway-transparency.sh
+Restart=unless-stopped
+Requires=dbus.service
+After=dbus.service
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,39 @@
+general.import = ["/var/home/jpm/.dotfiles/.config/alacritty/alacritty.toml"]
+
+[colors.primary]
+background = "#010101"
+foreground = "#FEFEFE"
+
+[env]
+TERM_TITLE = "Alacritty (Host)"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Hack Nerd Font"
+style = "SemiBold"
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Light"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[terminal.shell]
+program = "/bin/bash"
+
+[window]
+title = "Alacritty - Fedora (Host)"
+
+[window.class]
+general = "Alacritty-host"
+instance = "Alacritty-host"
+
+[terminal]

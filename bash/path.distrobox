@@ -1,0 +1,5 @@
+# vim: ft=sh
+
+if [ -f "$HOME/.dotfiles/bash/path.$DISTROBOX" ]; then
+	source $HOME/.dotfiles/bash/path.$DISTROBOX
+fi

@@ -1,0 +1,362 @@
+# vim: ft=sh
+
+# Vim-style navigation and movement
+
+# Vim navigation between containers
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Add Shift: move containers around display
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## Home Row Left
+
+# Index Stretch: todo.txt
+bindsym $mod+i exec scripts/waybar/waybar-todo.sh
+# Add Shift: resize mode ($mod + right-mouse is easier)
+bindsym $mod+Shift+i mode "resize"
+
+# Index: start tofi (launch applications)
+bindsym $mod+u exec ${HOME}/scripts/tofi/tofi-drun.sh
+# Add Shift: Unassigned
+#bindsym $mod+Shift+u exec false
+
+# Middle: Fedora distrobox
+bindsym $mod+e exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/fedora.toml
+# Add Shift: start a remote shell
+# TODO: bindsym $mod+Shift+e exec ${HOME}/scripts/wofi/wofi-ssh-menu.sh
+bindsym $mod+Shift+e exec ${HOME}/scripts/rofi/rofi-ssh-menu.sh
+
+# Ring: start a file manager
+bindsym $mod+o exec /usr/bin/thunar
+# Add Shift: VPN quick menu
+bindsym $mod+Shift+o exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/host.toml -e sudo YAZI_CONFIG_HOME=${HOME}/.dotfiles/.config/yazi ${HOME}/.nix-profile/bin/yazi
+
+# Pinky: Open Browser
+# TODO: bindsym $mod+a exec ${HOME}/scripts/tofi/tofi-vpn.sh
+bindsym $mod+a exec ${HOME}/scripts/rofi/rofi-openvpn.sh
+# Add Shift: Secondary Browser
+bindsym $mod+Shift+a exec ${HOME}/scripts/send-to-kodi.sh
+
+### Above Home Row: Distroboxes
+
+# Index Stretch: Unassigned (Alpine?)
+#bindsym $mod+period exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/host.toml
+# Add Shift: Unassigned
+#bindsym $mod+Shift+period exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/fedora-ephemeral.toml
+
+# Index: Host terminal (should be rarely used)
+bindsym $mod+p exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/host.toml
+# Add Shift: Fedora Ephemeral
+bindsym $mod+Shift+p exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/fedora-ephemeral.toml
+
+# Middle: Debian
+bindsym $mod+period exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/debian.toml
+# Add Shift: Debian Ephemeral
+bindsym $mod+Shift+period exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/debian-ephemeral.toml
+
+# Ring: Ubuntu (I don't actually have a use for Ubuntu right now)
+#bindsym $mod+comma exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/ubuntu.toml
+# Add Shift: ubuntu Ephemeral
+#bindsym $mod+Shift+comma exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/ubuntu-ephemeral.toml
+
+# Pinky: MailCleaner-Next
+bindsym $mod+apostrophe exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/mailcleaner.toml
+# Add Shift: ArchLinux Ephemeral
+#bindsym $mod+Shift+apostrophe exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/mailcleaner-next-ephemeral.toml
+
+## Below Home Row: Program hotkeys as applicable to workspace number
+
+# Pinky Irssi
+bindsym $mod+semicolon exec flatpak run com.mattermost.Desktop
+# Add Shift: Discord
+bindsym $mod+Shift+Semicolon exec flatpak run com.discordapp.Discord
+
+# Ring: Email
+bindsym $mod+q exec flatpak run org.mozilla.Thunderbird
+# Add Shift: Calendar (TODO: figure out a new calendar)
+bindsym $mod+Shift+q exec flatpak run io.github.ungoogled_software.ungoogled_chromium --app="https://papillon.john.me.tz" --socket=wayland --ozone-platform=wayland --enable-reatures=UseOzonePlatform
+
+# Middle: Occupied at top; switch to container below
+# Add Shift: Occupied at top; move focused container down
+
+# Index: Occupied at top; switch to container above
+# Add Shift: Occupied at top; move focused container up
+
+# Index Stretch: Clipboard snippets
+bindsym $mod+x exec ${HOME}/scripts/tofi/tofi-snippets.sh
+# Add Shift: Emoji selector
+bindsym $mod+Shift+x exec ${HOME}/scripts/tofi/tofi-emoji.sh
+
+### Right Hand
+
+## Home Row Right : Window/workspace management; power
+
+# Index Stretch: set future splits to horizontal (to the side of the home key)
+bindsym $mod+d split h
+# Add Shift: Unassigned
+#bindsym $mod+Shift+d
+
+# Index : Occupied above; switch to container to the left
+#bindsym $mod+h Taken
+# Add Shift: Occupied above; move container to the left
+#bindsym $mod+Shift+h Taken
+
+# Middle: Switch to next output
+bindsym $mod+t exec swaymsg output next
+# Add Shift: Switch to previous output
+bindsym $mod+Shift+t exec swaymsg output prev
+
+# Middle: Switch to next workspace
+bindsym $mod+n exec swaymsg workspace next
+# Add Shift: Switch to previous workspace
+bindsym $mod+Shift+n exec swaymsg workspace prev
+
+# Pinky: toggle float/tile
+bindsym $mod+s floating toggle
+# Add Shift: Toggle stickying of floating container to the focused workspace
+bindsym $mod+Shift+s sticky toggle
+
+# Pinky Stretch: kill focused container
+bindsym $mod+minus kill
+# Add Shift: Power menu
+bindsym $mod+underscore exec ${HOME}/scripts/tofi/tofi-menu.sh power
+
+## Above Home Row: Change containers arrangement methods
+## Shifts: Unassigned
+
+# Index Stretch: Fullscreen
+bindsym $mod+f fullscreen
+# Add Shift: Unassigned
+#bindsym $mod+Shift+f
+
+# Index: split layout (toggles vertical/horizontal)
+bindsym $mod+g layout toggle split
+# Add Shift: Unassigned
+#bindsym $mod+Shift+g
+
+# Middle: tabbed layout
+bindsym $mod+c layout tabbed
+# Add Shift: Unassigned
+#bindsym $mod+Shift+c
+
+# Ring: stacked layout
+bindsym $mod+r layout stacking
+# Add Shift: Unassigned
+#bindsym $mod+Shift+r
+
+# Pinky: Occupied above; switch to container to the right
+# Add Shift: Occupied above; move container to the right
+
+# Pinky Stretch: Unassigned
+#bindsym $mod+slash
+# Add Shift: Unassigned
+#bindsym $mod+Shift+slash
+
+## Below Home Row: Preemplive split direction, focus switching
+
+# Index Stretch: Rotate wallpaper
+bindsym $mod+b exec ${HOME}/scripts/sway/rotate-wallpaper.sh
+# Add Shift: Unassigned
+#bindsym $mod+Shift+b
+
+# Index: set future splits to vertical (beneath the home key, get it?)
+bindsym $mod+m split v
+# Add Shift: Unassigned
+#bindsym $mod+Shift+m
+
+# Middle: focus parent
+bindsym $mod+w focus parent
+# Add shift: focus child
+bindsym $mod+Shift+w focus child
+
+# Ring: Unassigned
+#bindsym $mod+v
+# Add Shift: Unassigned
+#bindsym $mod+Shift+v
+
+# Pinky: change between focuses
+bindsym $mod+z focus mode_toggle
+# Add Shift: Unassigned
+#bindsym $mod+Shift+z
+
+### Numberline: Workspace Swtching and Movement
+
+# Grave: DIY version of Tilde pop-up terminal
+bindsym $mod+Grave exec ${HOME}/scripts/sway/toggle_grave.sh
+# Add Shift: Switch to Grave workspace
+bindsym $mod+Shift+Grave move container to workspace grave
+# Add Control: Move to Grave workspace
+bindsym $mod+Control+Grave workspace grave
+
+# Numbers: Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 0
+# Add Shift: Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 0
+## Add Control: Switch to overflow workspaces
+bindsym $mod+Control+1 workspace C1
+bindsym $mod+Control+2 workspace C2
+bindsym $mod+Control+3 workspace C3
+bindsym $mod+Control+4 workspace C4
+bindsym $mod+Control+5 workspace C5
+bindsym $mod+Control+6 workspace C6
+bindsym $mod+Control+7 workspace C7
+bindsym $mod+Control+8 workspace C8
+bindsym $mod+Control+9 workspace C9
+bindsym $mod+Control+0 workspace C0
+## Add Control+Shift: Move container to overflow workspaces
+bindsym $mod+Control+Shift+1 move container to workspace C1
+bindsym $mod+Control+Shift+2 move container to workspace C2
+bindsym $mod+Control+Shift+3 move container to workspace C3
+bindsym $mod+Control+Shift+4 move container to workspace C4
+bindsym $mod+Control+Shift+5 move container to workspace C5
+bindsym $mod+Control+Shift+6 move container to workspace C6
+bindsym $mod+Control+Shift+7 move container to workspace C7
+bindsym $mod+Control+Shift+8 move container to workspace C8
+bindsym $mod+Control+Shift+9 move container to workspace C9
+bindsym $mod+Control+Shift+0 move container to workspace C0
+
+# Square bracket left: Unassigned; pretty sure that this keycode is incorrect
+#bindsym $mod+[
+# Add Shift: Unassigned
+#bindsym $mod+Shift+[
+
+# Square bracket right: Unassigned; pretty sure that this keycode is incorrect
+#bindsym $mod+]
+# Add Shift: Unassigned
+#bindsym $mod+Shift+]
+
+# Backspace: switch between previous workspace
+bindsym $mod+Backspace workspace back_and_forth
+# Add Shift: move container between previous workspaces
+bindsym $mod+Shift+Backspace move container to workspace back_and_forth
+
+### Function row
+
+# Escape: Lock
+bindsym $mod+Escape exec ${HOME}/scripts/sway/toggle_fade.sh
+# Add Shift: Blank screen
+bindsym $mod+Shift+Escape exec /usr/bin/sh -c "sleep 1 ; /usr/bin/kill -SIGUSR1 $(pgrep swayidle)"
+
+## Media Keys
+# Don't need modifier for media keys which have no primary usaged 
+# F1: Mute Audio
+bindsym XF86AudioMute exec ${HOME}/scripts/waybar/waybar-volume.sh mute-sink
+# F2: Volume down
+bindsym XF86AudioLowerVolume exec ${HOME}/scripts/sway/function_keys/vol-down.sh
+# F3: Volume up
+bindsym XF86AudioRaiseVolume exec ${HOME}/scripts/sway/function_keys/vol-up.sh
+# F4: Mute microphone
+bindsym XF86AudioMicMute exec ${HOME}/scripts/sway/function_keys/mute-source.sh
+# F5: Brightness down
+bindsym XF86MonBrightnessDown exec ${HOME}/scripts/waybar-brightness.sh down
+bindsym Shift+XF86MonBrightnessDown exec ${HOME}/scripts/waybar-brightness.sh down 1
+# F6: Brightness up
+bindsym XF86MonBrightnessUp exec ${HOME}/scripts/waybar-brightness.sh up
+bindsym Shift+XF86MonBrightnessUp exec ${HOME}/scripts/waybar-brightness.sh up 1
+# F7: Switch between docked and detached
+bindsym XF86Display exec ${HOME}/scripts/thinkpad/toggle_outputs.sh
+# F8: Toggle wifi
+#bindsym $mod+F8
+# F9: Open settings
+#bindsym $mod+F9
+#bindsym $mod+Shift+F10
+# F11: Keyboard Backlight
+bindsym $mod+F11 exec ${HOME}/scripts/thinkpad/kbd_backlight.pl 2> /dev/null
+# F12: Unassigned
+#bindsym $mod+F12
+
+# Home: Unassigned
+#bindsym $mod+Home exec false
+# Add Shift: Unassigned
+#bindsym $mod+Shift+Home exec false
+
+# End: Unassigned
+#bindsym $mod+End exec false
+# Add Shift: Unassigned
+#bindsym $mod+Shift+End exec false
+
+# Insert: Unassigned
+#bindsym $mod+Insert
+# Add Shift: Unassigned
+#bindsym $mod+Shift+Insert
+
+# Delete: Open notification center
+bindsym $mod+Delete exec swaync-client --toggle-panel
+# Add Shift: Toggle do not disturb for notifications
+bindsym $mod+Shift+Delete exec swaync-client --toggle-dnd
+
+# Miscellaneous
+
+# PrintScreen: capture output
+bindsym Print exec /usr/bin/grimshot copy output
+# Add Shift: capture window
+bindsym Shift+Print exec /usr/bin/grimshot copy active
+# Add Control: capture region
+bindsym Shift+Control+Print exec /usr/bin/grimshot copy active
+# Tab: Quick change. Shows all windows on all pages by name in wofi
+bindsym $mod+tab exec ${HOME}/scripts/sway/sway-alt-tab.sh
+
+# Space: Update waybar to reflect keyboard layout toggle
+bindsym $mod+space exec pkill -SIGRTMIN+10 waybar
+
+# Resize Mode (you can also use the mouse for that): Entered with $mod+i
+mode "resize" {
+
+    # Vim direction key to modify the size of containers
+
+    # D: shrink width
+    bindsym d resize shrink width 10 px or 10 ppt
+    # N: grow width
+    bindsym n resize grow width 10 px or 10 ppt
+    # H: shrink height
+    bindsym h resize shrink height 10 px or 10 ppt
+    # T: grow height
+    bindsym t resize grow height 10 px or 10 ppt
+
+    # Same system with half of the effect for more granularity with the arrow keys
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
+
+    # Switch back to normal mode: Enter, Escape or Q
+    bindsym q mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}

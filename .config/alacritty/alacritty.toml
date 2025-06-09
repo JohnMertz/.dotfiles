@@ -1,0 +1,217 @@
+
+[bell]
+color = "#cc241d"
+duration = 0
+
+[bell.command]
+program = "/home/jpm/scripts/sway/alacritty-bell.sh"
+
+[[colors.indexed_colors]]
+color = "#076678"
+index = 24
+
+[[colors.indexed_colors]]
+color = "#427b58"
+index = 66
+
+[[colors.indexed_colors]]
+color = "#9d0006"
+index = 88
+
+[[colors.indexed_colors]]
+color = "#8f3f71"
+index = 96
+
+[[colors.indexed_colors]]
+color = "#79740e"
+index = 100
+
+[[colors.indexed_colors]]
+color = "#8ec07c"
+index = 108
+
+[[colors.indexed_colors]]
+color = "#83a598"
+index = 109
+
+[[colors.indexed_colors]]
+color = "#af3a03"
+index = 130
+
+[[colors.indexed_colors]]
+color = "#b57614"
+index = 136
+
+[[colors.indexed_colors]]
+color = "#b8bb26"
+index = 142
+
+[[colors.indexed_colors]]
+color = "#fb4934"
+index = 167
+
+[[colors.indexed_colors]]
+color = "#d3869b"
+index = 175
+
+[[colors.indexed_colors]]
+color = "#fe8019"
+index = 208
+
+[[colors.indexed_colors]]
+color = "#fabd2f"
+index = 214
+
+[[colors.indexed_colors]]
+color = "#ebdbb2"
+index = 223
+
+[[colors.indexed_colors]]
+color = "#f2e5bc"
+index = 228
+
+[[colors.indexed_colors]]
+color = "#fbf1c7"
+index = 229
+
+[[colors.indexed_colors]]
+color = "#f9f5d7"
+index = 230
+
+[[colors.indexed_colors]]
+color = "#1d2021"
+index = 234
+
+[[colors.indexed_colors]]
+color = "#282828"
+index = 235
+
+[[colors.indexed_colors]]
+color = "#32302f"
+index = 236
+
+[[colors.indexed_colors]]
+color = "#3c3836"
+index = 237
+
+[[colors.indexed_colors]]
+color = "#504945"
+index = 239
+
+[[colors.indexed_colors]]
+color = "#665c54"
+index = 241
+
+[[colors.indexed_colors]]
+color = "#7c6f64"
+index = 243
+
+[[colors.indexed_colors]]
+color = "#928374"
+index = 244
+
+[[colors.indexed_colors]]
+color = "#928374"
+index = 245
+
+[[colors.indexed_colors]]
+color = "#a89984"
+index = 246
+
+[[colors.indexed_colors]]
+color = "#bdae93"
+index = 248
+
+[[colors.indexed_colors]]
+color = "#d5c4a1"
+index = 250
+
+[colors.cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[colors.primary]
+background = "#010101"
+foreground = "#ebdbb2"
+
+[colors.search.focused_match]
+background = "#d79921"
+foreground = "CellBackground"
+
+[colors.search.matches]
+background = "CellForeground"
+foreground = "CellBackground"
+
+[colors.selection]
+background = "CellForeground"
+text = "CellBackground"
+
+[colors.vi_mode_cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[cursor]
+blink_interval = 750
+thickness = 1.0
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[env]
+TERM_TITLE = "Alacritty"
+TERM = "alacritty"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "FiraCode Nerd Font"
+style = "SemiBold"
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "Light"
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[scrolling]
+history = 100000
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = "│`|\"' ()[]{}<>\t"
+
+[terminal.shell]
+program = "/var/home/jpm/scripts/distrobox/invalid-terminal.sh"
+
+[window]
+opacity = 1.0
+decorations = "none"
+dynamic_padding = true
+dynamic_title = true
+startup_mode = "Windowed"
+title = "Alacritty - Invalid invalid-terminal"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty-invalid"
+
+[general]
+live_config_reload = true
+
+[terminal]

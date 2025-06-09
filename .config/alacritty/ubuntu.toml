@@ -1,0 +1,60 @@
+general.import = ["/var/home/jpm/.dotfiles/.config/alacritty/alacritty.toml"]
+
+[colors.bright]
+black = "#555654"
+blue = "#759DD0"
+cyan = "#32E5E5"
+green = "#89E334"
+magenta = "#AD80A7"
+red = "#EF2828"
+white = "#EFEEEC"
+yellow = "#FDEB4F"
+
+[colors.normal]
+black = "#2F3338"
+blue = "#3364A4"
+cyan = "#059799"
+green = "#4D9906"
+magenta = "#744F7A"
+red = "#CD0100"
+white = "#D3D8CE"
+yellow = "#c9A000"
+
+[colors.primary]
+background = "#300A24"
+foreground = "#FEFEFE"
+
+[env]
+TERM_TITLE = "Alacritty (Ubuntu)"
+
+[font]
+size = 12.0
+
+[font.bold]
+family = "UbuntuMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "UbuntuMono Nerd Font"
+style = "SemiBold"
+
+[font.italic]
+family = "UbuntuMono Nerd Font"
+style = "Light"
+
+[font.normal]
+family = "UbuntuMono Nerd Font"
+style = "Regular"
+
+[terminal.shell]
+args = ["enter", "ubuntu"]
+program = "/usr/bin/distrobox"
+
+[window]
+title = "Alacritty - Ubuntu (Distrobox)"
+
+[window.class]
+general = "Alacritty-ubuntu"
+instance = "Alacritty-ubuntu"
+
+[terminal]

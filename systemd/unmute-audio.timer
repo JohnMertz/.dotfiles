@@ -1,0 +1,9 @@
+[Unit]
+Description=Unmute audio in the morning
+
+[Timer]
+OnCalendar=*-*-* 08:00:00
+Unit=unmute-audio.service
+
+[Install]
+WantedBy=user@1000.slice

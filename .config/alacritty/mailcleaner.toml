@@ -1,0 +1,60 @@
+general.import = ["/var/home/jpm/.dotfiles/.config/alacritty/alacritty.toml"]
+
+[colors.bright]
+black = "#913656"
+blue = "#A43ADF"
+cyan = "#3AD29C"
+green = "#52DF3A"
+magenta = "#DF3A75"
+red = "#DF3C22"
+white = "#FEFEFE"
+yellow = "#DFA43A"
+
+[colors.normal]
+black = "#76052D"
+blue = "#8E0AD7"
+cyan = "#09C784"
+green = "#27D70A"
+magenta = "#D70A53"
+red = "#D7270A"
+white = "#2B0211"
+yellow = "#D78E0A"
+
+[colors.primary]
+background = "#450325"
+foreground = "#FBE6EE"
+
+[env]
+TERM_TITLE = "Alacritty (MailCleaner)"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "DejaVuSansMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "DejaVuSansMono Nerd Font"
+style = "SemiBold"
+
+[font.italic]
+family = "DejaVuSansMono Nerd Font"
+style = "Light"
+
+[font.normal]
+family = "DejaVuSansMono Nerd Font"
+style = "Regular"
+
+[terminal.shell]
+args = ["enter", "mailcleaner-next"]
+program = "/usr/bin/distrobox"
+
+[window]
+title = "Alacritty - MailCleaner (Distrobox)"
+
+[window.class]
+general = "Alacritty-mailcleaner"
+instance = "Alacritty-mailcleaner"
+
+[terminal]

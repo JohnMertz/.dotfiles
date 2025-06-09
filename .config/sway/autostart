@@ -1,0 +1,94 @@
+# vim: ft=sh
+
+#TODO: Convert to systemd services, where reasonable
+
+################################################################################
+# Themes
+################################################################################
+
+# Gtk themes
+exec gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox' &
+exec gsettings set org.gnome.desktop.interface icon-theme 'Gruvbox' &
+
+# X11 Cursor theme
+exec gsettings set org.gnome.desktop.interface cursor-theme 'FlatbedCursors-Orange' &
+
+################################################################################
+# Background utilities
+################################################################################
+
+# Start ssh-agent
+exec ${HOME}/scripts/ssh-agent.sh &
+exec SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=${HOME}/.local/bin/ksshaskpass ssh-add &
+
+# Automatically restore last used output configuration
+# TODO: Need to add fail-safe to script in case the outputs are unavailable
+exec ${HOME}/scripts/sway/restore_displays.sh &
+
+# Start pop-up terminal
+exec ${HOME}/scripts/sway/toggle_grave.sh &
+
+# Enable automatic color temperature change
+exec ${HOME}/scripts/distrobox/debian/gammastep.pl &
+exec ${HOME}/.local/bin/wl-gammactl -c -1.000 -b 2.000 -g 0.500 -m DP-1 &
+
+# Window transparency
+exec systemctl --user restart sway-transparency.service &
+
+# Idle daemon
+exec ${HOME}/scripts/sway/idle.sh daemon &
+#exec systemctl --user restart swayidle.service &
+
+# Wallpapers
+exec systemctl --user restart wallpapers.service &
+
+# Notification daemon
+exec swaync -c ${HOME}/.dotfiles/.config/swaync/config.json -s .dotfiles/swaync/style.css &
+
+# Tray icons
+# TODO: Orage is dead. Find a new calendaring solution
+exec nm-applet &
+exec squeekboard-restyled &
+exec blueman-applet &
+exec nextcloud &
+exec pasystray &
+
+################################################################################
+# Applications by workspace
+################################################################################
+
+# 0:cal
+# TODO: as above, need new calendaring solution.
+
+# 1:chat
+exec flatpak run com.mattermost.Desktop --socket=wayland --ozone-platform=wayland --enable-reatures=UseOzonePlatform &
+exec flatpak run chat.rocket.RocketChat --socket=wayland --ozone-platform=wayland --enable-reatures=UseOzonePlatform &
+exec flatpak run network.loki.Session &
+
+# 2:mail - Should also prompt for keyring
+exec flatpak run org.mozilla.Thunderbird &
+
+# 3:chrm
+# Don't launch chromium because it hogs resources
+# exec chromium &
+
+# 5:call
+# Currently preferring mobile
+#exec linphone &
+
+# 7:FF Dev edition
+exec flatpak run org.mozilla.firefox &
+
+# 9:Git (gittyup)
+exec flatpak run com.github.Murmele.Gittyup &
+
+# 0:Hud
+exec flatpak run com.github.ungoogled_software.ungoogled_chromium --app="https://papillon.john.me.tz" --socket=wayland --ozone-platform=wayland --enable-reatures=UseOzonePlatform &
+
+# Assign workspaces to outputs
+exec ${HOME}/scripts/sway/arrange.pl &
+
+exec swaymsg workspace 1 &
+
+# Take ownership of ydotool socket
+exec sudo chown $USER:$(groups | awk '{ print $1 }') $YDOTOOL_SOCKET

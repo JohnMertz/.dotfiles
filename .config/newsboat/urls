@@ -1,0 +1,7 @@
+#Prepend each blog with a space-separated list of emojis to indicate the category for my Blogroll. Check the `blogroll.sh` script for existing categories and update it with new category names if a new emoji is used
+#🐧 🖥️
+https://lwn.net/headlines/rss
+#🐧 🖥️
+https://drewdevault.com/blog/index.xml
+#🐧 🖥️
+http://127.0.0.1:8082/rss.xml
