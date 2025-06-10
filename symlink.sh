@@ -18,6 +18,7 @@ function get_lincoln() {
         [[ $ITEM == $DIR ]] && continue
         ITEM=$(echo $ITEM | sed "s,^$DIR,," | sed "s,^/,,")
         [[ $ITEM == '.linkignore' ]] && continue
+        [[ $ITEM == '.git' ]] && continue
         if [[ -e $ABS/.linkignore ]]; then
             if grep -q $ITEM <<< $(cat $ABS/.linkignore); then
                 setterm --foreground yellow

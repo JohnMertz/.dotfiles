@@ -238,7 +238,7 @@ if [[ $DIRCHANGED ]]; then
     # Reload Plenv version and PERL5LIB paths
     source ${HOME}/.dotfiles/bash/plenv-path.sh
     # If moved to the root of a git repository, print onefetch
-    if [ -d "$PWD/.git" ]; then
+    if [ -d "$PWD/.git/config" ]; then
 	if [[ "$(which onefetch)" == "" ]]; then
 	    echo "This is a git directory, but you don't have 'onefetch' in your PATH"
         else
