@@ -130,7 +130,6 @@ window#waybar {
 #workspaces {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    background-color: @grey02;
 }
 
 #workspaces button,
@@ -147,6 +146,11 @@ window#waybar {
     background: none;
     margin-right: -12px;
     padding-left: 6px;
+}
+
+#workspaces button#sway-workspace-grave {
+    margin-left: -40px;
+    border: 0px;
 }
 
 #workspaces button:first-child {
