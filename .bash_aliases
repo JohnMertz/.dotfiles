@@ -2,21 +2,25 @@
 
 # Enable color support if possible
 if [ -x /usr/bin/dircolors ]; then
-    test -r ${HOME}/.dircolors && eval "$(dircolors -b ${HOME}/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-    export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+  test -r ${HOME}/.dircolors && eval "$(dircolors -b ${HOME}/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+  export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 fi
 
 # Vim stuff
-alias :q="exit"   # Sometimes I'm dumb and try to exit a terminal as if it is vim
+alias vim="~/scripts/vim"
+alias :q="exit" # Sometimes I'm dumb and try to exit a terminal as if it is vim
 alias :wq="exit"
 alias q="exit"
 alias i="vim -c 'startinsert'"
+
+# quick cd's
+alias cdst="cd ~/documents/Work/SpamTagger"
 
 # shortcuts
 alias c="clear"
@@ -56,21 +60,21 @@ alias isdistrobox='[ -f "/run/.containerenv" ] && grep -oP "(?<=name=\")[^\";]+"
 alias cd='export DIRCHANGED="1"; cd'
 
 if [ -f /etc/os-release ]; then
-    export OS=`grep -P '^ID=' /etc/os-release | cut -d'=' -f2 | sed 's/"//g'`
-    if [ -f ${HOME}/.dotfiles/bash/bash_aliases.$OS ]; then
-        source ${HOME}/.dotfiles/bash/bash_aliases.$OS
-    fi
-    OSVARIANT=`grep -P '^VARIANT_ID=' /etc/os-release | cut -d'=' -f2 | sed 's/"//g'`
-    if [ -z $OSVARIANT ]; then
-        export OSVARIANT
-    fi
-    if [ -f ${HOME}/.dotfiles/bash/bash_aliases.$OS-$OSVARIANT ]; then
-        source ${HOME}/.dotfiles/bash/bash_aliases.$OS-$OSVARIANT
-    fi
+  export OS=$(grep -P '^ID=' /etc/os-release | cut -d'=' -f2 | sed 's/"//g')
+  if [ -f ${HOME}/.dotfiles/bash/bash_aliases.$OS ]; then
+    source ${HOME}/.dotfiles/bash/bash_aliases.$OS
+  fi
+  OSVARIANT=$(grep -P '^VARIANT_ID=' /etc/os-release | cut -d'=' -f2 | sed 's/"//g')
+  if [ -z $OSVARIANT ]; then
+    export OSVARIANT
+  fi
+  if [ -f ${HOME}/.dotfiles/bash/bash_aliases.$OS-$OSVARIANT ]; then
+    source ${HOME}/.dotfiles/bash/bash_aliases.$OS-$OSVARIANT
+  fi
 fi
 
 if [ "$(isdistrobox)" ]; then
-    source "$HOME/.dotfiles/bash/bash_aliases.distrobox"
+  source "$HOME/.dotfiles/bash/bash_aliases.distrobox"
 else
-    source "$HOME/.dotfiles/bash/bash_aliases.host"
+  source "$HOME/.dotfiles/bash/bash_aliases.host"
 fi
