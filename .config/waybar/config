@@ -111,7 +111,7 @@
     "custom/weather": {
         "interval": 600,
         "return-type": "json",
-        "on-click": "xdg-open https://john.me.tz/weather/forecast",
+        "on-click": "xdg-open https://old.john.me.tz/weather/forecast",
         "exec": "${HOME}/scripts/waybar/waybar-weather.sh"
     },
     "cpu": {
@@ -152,7 +152,7 @@
         "scroll-step": 1,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon}{volume}%",
-        "format-muted": "",
+        "format-muted": "⨯",
         "format-icons": {
             "headphones": "",
             "handsfree": "",
@@ -162,8 +162,8 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-scroll-up": "${HOME}/scripts/waybar/waybar-volume.sh up 1",
-        "on-scroll-down": "${HOME}/scripts/waybar/waybar-volume.sh down 1",
+        "on-scroll-up": "${HOME}/scripts/waybar/waybar-volume.sh up 5",
+        "on-scroll-down": "${HOME}/scripts/waybar/waybar-volume.sh down 5",
         "on-click": "pavucontrol",
         "on-click-right": "${HOME}/scripts/waybar/waybar-volume.sh mute-sink"
     },
