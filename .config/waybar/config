@@ -9,7 +9,7 @@
 	    "visible": false,
 	    "layer": "bottom",
             "exclusive": false,
-            "gtk-layer-shell": true,
+            "gtk-layer-shell": true
 	},
 	"dock": {
 	    "passthrough": false,
@@ -39,7 +39,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
     "modules-center": [],
-    "modules-right": ["custom/keyboard", "custom/rss", "custom/weather", "backlight", "cpu", "memory", "custom/disk", "temperature", "pulseaudio", "custom/battery", "tray", "custom/wallpaper", "custom/pkg", "custom/idle_mode", "custom/pomodoro", "custom/clock", "custom/nc"],
+    "modules-right": ["custom/keyboard", "backlight", "cpu", "memory", "custom/disk", "temperature", "pulseaudio", "custom/battery", "tray", "custom/wallpaper", "custom/pkg", "custom/idle_mode", "custom/pomodoro", "custom/clock", "custom/weather", "custom/nc"],
     // Modules configuration
     "sway/workspaces": {
         // "disable-scroll": true,
@@ -94,7 +94,7 @@
         //"on-click": "${HOME}/scripts/waybar/waybar-mpd.sh"
     //},
     "custom/keyboard": {
-        "on-click": "${HOME}/scripts/waybar/waybar-keyboard.sh layout; pkill -SIGRTMIN+10 waybar",
+        "on-click": "${HOME}/scripts/waybar/waybar-keyboard.sh rotate; pkill -SIGRTMIN+10 waybar",
         "on-click-right": "${HOME}/scripts/thinkpad/kbd_backlight.pl rotate",
         "exec": "${HOME}/scripts/waybar/waybar-keyboard.sh bar",
 	"signal": 10,
@@ -107,12 +107,6 @@
         "return-type": "json",
         "on-click": "${HOME}/scripts/waybar/waybar-rss.sh open",
         "exec": "${HOME}/scripts/waybar/waybar-rss.sh bar"
-    },
-    "custom/weather": {
-        "interval": 600,
-        "return-type": "json",
-        "on-click": "xdg-open https://old.john.me.tz/weather/forecast",
-        "exec": "${HOME}/scripts/waybar/waybar-weather.sh"
     },
     "cpu": {
         "format": " {usage}%",
@@ -136,7 +130,7 @@
         "device": "acpi_video1",
         "format": "{icon} {percent}%",
         "format-icons": [ "\uf185" ],
-        "on-click": "notify-send $(brightnessctl info)",
+        "on-click": "${HOME}/scripts/waybar/waybar-backlight.sh",
         "on-scroll-up": "${HOME}/scripts/waybar/waybar-backlight.sh up 1",
         "on-scroll-down": "${HOME}/scripts/waybar/waybar-backlight.sh down 1",
         "on-click-right": "${HOME}/scripts/waybar/waybar-backlight.sh"
@@ -164,7 +158,7 @@
         },
         "on-scroll-up": "${HOME}/scripts/waybar/waybar-volume.sh up 5",
         "on-scroll-down": "${HOME}/scripts/waybar/waybar-volume.sh down 5",
-        "on-click": "pavucontrol",
+        "on-click": "${HOME}/scripts/waybar/waybar-audio.sh",
         "on-click-right": "${HOME}/scripts/waybar/waybar-volume.sh mute-sink"
     },
     "custom/pkg": {
@@ -180,7 +174,7 @@
     },
     "custom/wallpaper": {
         "interval": 86400,
-        "exec": "echo '✶\nRotate wallpaper\nactive'",
+        "exec": "echo '🖽\nRotate wallpaper\nactive'",
         "on-click": "${HOME}/scripts/sway/rotate-wallpaper.sh"
     },
     "custom/idle_mode": {
@@ -203,17 +197,23 @@
         "return-type": "json",
         "exec": "echo '{\"class\": \"clock\", \"text\": \"'$(date '+%H:%M')'\", \"tooltip\": \"'$(date '+%A, %B %d, %Y | %Y-%m-%d')'\"}'"
     },
+    "custom/weather": {
+        "interval": 600,
+        "return-type": "json",
+        "on-click": "xdg-open https://old.john.me.tz/weather/forecast",
+        "exec": "${HOME}/scripts/waybar/waybar-weather.sh"
+    },
     "custom/nc": {
     	"tooltip": true,
     	"format": "{icon}",
     	"format-icons": {
-            "none": "",
-            "notification": "<span foreground=\"red\"><sup></sup></span>",
-            "dnd-none": "",
-            "dnd-notification": "<span foreground=\"red\"><sup></sup></span>",
-            "inhibited-notification": "<span foreground=\"red\"><sup></sup></span>",
+            "none": " ",
+            "notification": " <span foreground=\"red\"><sup></sup></span>",
+            "dnd-none": " ",
+            "dnd-notification": " <span foreground=\"white\"><sup></sup></span>",
+            "inhibited-notification": " <span foreground=\"white\"><sup></sup></span>",
             "inhibited-none": " ",
-            "dnd-inhibited-notification": "<span foreground=\"red\"><sup></sup></span>",
+            "dnd-inhibited-notification": " <span foreground=\"white\"><sup></sup></span>",
             "dnd-inhibited-none": " "
     	},
     	"return-type": "json",

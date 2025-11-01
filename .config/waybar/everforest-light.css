@@ -1,0 +1,57 @@
+/*
+* Everforest
+*/
+
+@define-color white #fefefe;
+@define-color black #010101;
+@define-color default #d3c6aa;
+@define-color red #f85552;
+@define-color green #8da101;
+@define-color yellow #dfa000;
+@define-color blue #3a94c5;
+@define-color magenta #df69ba;
+@define-color cyan #35a77c;
+@define-color orange #f57d26;
+@define-color purple #774abf;
+@define-color fg #d3c6aa;
+/* Very slightly lighten bg to round to #f on Paperlike */
+@define-color bg #f2f0df;
+@define-color fg_dim #232a2e;
+@define-color bg_dim #f2efdf;
+@define-color bg1 #f2efdf;
+@define-color bg2 #fffbef;
+@define-color bg3 #edeada;
+@define-color bg4 #e8e5d5;
+@define-color bg5 #bec5b2;
+@define-color fg1 #343f44;
+@define-color fg2 #3d484d;
+@define-color fg3 #475258;
+@define-color fg4 #4f585e;
+@define-color fg5 #56635f;
+@define-color grey_0 #A6B0A0;
+@define-color grey_1 #939F91;
+@define-color grey_2 #829181;
+@define-color grey_3 #504945;
+@define-color statusline_default #708089;
+@define-color statusline_green #93b259;
+@define-color statusline_red #e66868;
+@define-color bgblue #d4f2f0;
+/* Official version has 2 different green backgrounds */
+@define-color bgvisual #f0f2d4;
+@define-color bgred #ffe7de;
+@define-color bgyellow #fef2d5;
+@define-color bggreen #f3f5d9;
+@define-color bgblue #ecf5ed;
+@define-color bgpurple #4a444e;
+@define-color bgmagenta #fceced;
+@define-color redhi #e67e90;
+@define-color greenhi #a7c080;
+@define-color yellowhi #dbbc7f;
+@define-color bluehi #7fbbb3;
+@define-color magentahi #d699b6;
+@define-color magentahi #D3869B;
+@define-color cyanhi #59e6d6;
+/**/
+@define-color orangehi #FE8019;
+@define-color alert #D65D0E;
+@define-color warning #FE8019;

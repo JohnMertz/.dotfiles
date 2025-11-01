@@ -1,187 +1,172 @@
-@import "gruvbox.css";
-/*
- * Available colours
- * black
- * white
- * fg
- * fghi
- * bg
- * bghi
- * grey00 = bghi
- * grey01 = bg
- * grey02
- * grey03
- * grey04
- * grey05
- * grey06
- * grey07
- * grey08
- * grey09
- * grey10 = fg
- * grey11 = fghi
- * red
- * green
- * yellow
- * blue
- * magenta
- * orange
- * cyan
- * redhi
- * greenhi
- * yellowhi
- * bluehi
- * magentahi
- * cyanhi
- * orangehi
- * alert = orange
- * warning = orangehi
- */
+@import "everforest-light.css";
 
 /* Global/Multi */
 
 * {
   font-family: "Anonymice Nerd Font", "Font Awesome 6 Brands", "Font Awesome 6 Free", Monospace;
-  font-size: 14.25px;
+  font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
-  margin: -5px;
-  animation-name: fadeIn;
-  animation-duration: 1s;
-  color: @fg;
-  border-bottom: solid 1px @fg;
-  border-top: solid 1px @fg;
-}
-
-/* Right */
-
-#window,
-#custom-weather,
-#custom-rss,
-#custom-mpd,
-#custom-keyboard,
-#backlight,
-#cpu,
-#memory,
-#custom-disk,
-#temperature,
-#pulseaudio,
-#custom-battery,
-#tray,
-#custom-wallpaper,
-#custom-pkg,
-#custom-pomodoro,
-#custom-clock,
-#custom-idle_mode,
-#custom-nc {
-  border-top: solid 1px @fg;
-  border-bottom: solid 1px @fg;
-  margin: 0px;
-  padding-left: 5px;
-}
-
-/* Left-most modules */
-
-#custom-keyboard,
-#backlight,
-#tray {
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-left: 1px solid @fg;
-  padding-left: 5px;
-}
-
-/* Misc */
-
-#custom-rss,
-#custom-weather,
-#custom-mpd,
-#custom-keyboard {
-  color: @bluehi;
-  background: @grey01;
-}
-
-/* Status area */
-
-#backlight,
-#cpu,
-#memory,
-#custom-disk,
-#temperature,
-#pulseaudio,
-#custom-battery {
-  color: @yellowhi;
-  background: @grey02;
-}
-
-/* Tray */
-
-#tray,
-#custom-wallpaper,
-#custom-pkg,
-#custom-idle_mode {
-  background: @grey03;
-  color: @bluehi;
+  color: @fg_dim;
+  background: linear-gradient(to bottom, rgba(127, 127, 127, 0.5) 0%, rgba(127, 127, 127, 0) 20%), url('/var/home/jpm/.config/waybar/canvas.jpg');
+  background-size: 240px;
 }
 
 /* Workspaces */
 
 #workspaces {
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  padding-top: 4px;
+  padding-right: 30px;
+  margin-right: -30px;
+  min-height: 32px;
 }
 
 #workspaces button,
 #mode {
-  border: solid 1px @fg;
-  border-left: 0px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  color: @white;
-  padding: 0px;
-  margin: 0px;
-  background: none;
-  margin-right: -12px;
-  padding-left: 6px;
+  color: @fg_dim;
+  background-size: 120px auto;
+  padding: 0px 50px 10px 30px;
+  border-top: solid 15px rgba(0, 0, 0, 0);
+  margin-top: -3px;
+  margin-bottom: -10px;
+  margin-left: -60px;
+  margin-right: 10px;
+  background-position: top;
 }
 
-#workspaces button#sway-workspace-grave {
-  margin-left: -40px;
-  border: 0px;
+#mode {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-grey.png'), url('/var/home/jpm/.config/waybar/stroke-grey.png');
+  color: @fg_dim;
+  text-shadow: -1px -1px @fg_dim, -1px 1px @fg_dim, 1px -1px @fg_dim, 1px 1px @fg_dim;
+  font-weight: bold;
+  margin-top: -16px;
+  padding-top: 4px;
+  margin-left: -20px;
+}
+
+#workspaces button.focused,
+#workspaces button:hover {
+  color: @bg_dim;
+  text-shadow: -1px -1px @fg_dim, -1px 1px @fg_dim, 1px -1px @fg_dim, 1px 1px @fg_dim;
+  font-weight: bold;
+  margin-top: -16px;
+  padding-top: 4px;
 }
 
 #workspaces button:first-child {
-  padding-left: 5px;
+  margin-left: -20px;
+}
+
+#workspaces button:nth-child(10n+1) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-cyan-alpha.png');
+}
+
+#workspaces button.focused:nth-child(10n+1),
+#workspaces button:hover:nth-child(10n+1) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-cyan.png');
+}
+
+#workspaces button:nth-child(10n+2) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-blue-alpha.png');
+}
+
+#workspaces button.focused:nth-child(10n+2),
+#workspaces button:hover:nth-child(10n+2) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-blue.png');
+}
+
+#workspaces button:nth-child(10n+3) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-purple-alpha.png');
+}
+
+#workspaces button.focused:nth-child(10n+3),
+#workspaces button:hover:nth-child(10n+3) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-purple.png');
+}
+
+#workspaces button:nth-child(10n+4) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-green-alpha.png');
+}
+
+#workspaces button.focused:nth-child(10n+4),
+#workspaces button:hover:nth-child(10n+4) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-green.png');
+}
+
+
+#workspaces button:nth-child(10n+5) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-magenta-alpha.png');
+}
+
+#workspaces button.focused:nth-child(10n+5),
+#workspaces button:hover:nth-child(10n+5) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-magenta.png');
+}
+
+#workspaces button:nth-child(10n+6) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-red-alpha.png');
+}
+
+#workspaces button.focused:nth-child(10n+5),
+#workspaces button:hover:nth-child(10n+5) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-red.png');
+}
+
+#workspaces button:nth-child(10n+6) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-orange-alpha.png');
+}
+
+#workspaces button.focused:nth-child(10n+6),
+#workspaces button:hover:nth-child(10n+6) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-orange.png');
+}
+
+#workspaces button:nth-child(10n+7) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-yellow-alpha.png');
+}
+
+#workspaces button.focused:nth-child(10n+7),
+#workspaces button:hover:nth-child(10n+7) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-yellow.png');
+}
+
+#workspaces button:nth-child(10n+9) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-green-alpha.png');
+}
+
+#workspaces button.focused:nth-child(10n+9),
+#workspaces button:hover:nth-child(10n+9) {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-green.png');
 }
 
 #workspaces button:last-child {
   margin-right: 0px;
 }
 
-#workspaces button.visible {
-  color: @white;
+
+#workspaces button#sway-workspace-grave {
+  margin-left: -40px;
 }
 
 #workspaces button.focused {
-  color: @orangehi;
-  border-color: @orangehi;
+  color: @bg;
   font-weight: bold;
 }
 
-#workspaces button.urgent,
-#mode {
+#workspaces button.urgent {
   color: @redhi;
-  border-color: @redhi;
+  margin-top: -16px;
+  padding-top: 4px;
+  text-shadow: -1px -1px @fg_dim, -1px 1px @fg_dim, 1px -1px @fg_dim, 1px 1px @fg_dim;
   font-weight: bold;
 }
 
 /* Mode */
 
 #mode {
-  background-color: @grey01;
+  text-shadow: -1px -1px @fg_dim, -1px 1px @fg_dim, 1px -1px @fg_dim, 1px 1px @fg_dim;
   padding-right: 7px;
 }
 
@@ -192,87 +177,144 @@ window#waybar.empty #window {
 }
 
 #window {
-  color: @fg;
-  margin: 0px 10px;
-  padding: 0px 20px;
-  background: linear-gradient(90deg, @bg 0%, @grey03 3%, @grey03 97%, @bg 100%);
+  background: url('/var/home/jpm/.config/waybar/stroke-grey.png');
+  background-size: cover;
+  background-position: center;
+  text-shadow: -1px -1px @fg_dim, -1px 1px @fg_dim, 1px -1px @fg_dim, 1px 1px @fg_dim;
+  color: @bg_dim;
+  font-weight: bold;
+  padding: 3px 5em 0px 3em;
 }
+
+/* Right */
+
+#custom-keyboard,
+#custom-rss,
+#custom-mpd,
+#backlight,
+#cpu,
+#memory,
+#custom-disk,
+#temperature,
+#pulseaudio,
+#custom-battery,
+#custom-pomodoro,
+#tray,
+#custom-wallpaper,
+#custom-pkg,
+#custom-weather,
+#custom-clock,
+#custom-idle_mode,
+#custom-nc {
+  background-size: 120px auto;
+  background-position: center;
+  color: @fg_dim;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px 5px;
+}
+
+/* Misc */
+
+#custom-rss,
+#custom-mpd,
+#custom-keyboard {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-blue.png');
+}
+
+/* Status area */
+
+#backlight,
+#cpu,
+#memory,
+#custom-disk,
+#temperature,
+#pulseaudio,
+#custom-battery {}
 
 /* Keyboard */
 
 #custom-keyboard {
+  background-position: left;
   padding-top: 0px;
-  padding-left: 5px;
+  padding-left: 20px;
+}
+
+#custom-keyboard:hover,
+#backlight:hover,
+#cpu:hover,
+#memory:hover,
+#custom-disk:hover,
+#temperature:hover,
+#pulseaudio:hover,
+#custom-battery:hover,
+#custom-wallpaper:hover,
+#custom-idle_mode:hover,
+#custom-pomodoro:hover,
+#custom-clock:hover,
+#custom-weather:hover {
+  color: @bg_dim;
+  text-shadow: -1px -1px @fg_dim, -1px 1px @fg_dim, 1px -1px @fg_dim, 1px 1px @fg_dim;
 }
 
 #custom-keyboard.alternate {
-  color: @orange;
-}
-
-/* Weather */
-
-#custom-weather {
-  color: @bluehi;
-  border-radius: 0px;
-  padding-right: 4px;
-  padding-left: 0px;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-red.png');
 }
 
 /* MPD */
 
 #mpd {
-  color: @fg;
+  color: @fg_dim;
 }
 
 /* Backlight */
 
 #backlight {
-  color: @yellowhi;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-yellow.png');
 }
 
 /* CPU */
 
 #cpu {
-  color: @greenhi;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-orange.png');
 }
 
 /* Memory */
 
 #memory {
-  color: @magentahi;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-magenta.png');
 }
 
 /* Disk */
 
 #custom-disk {
-  color: @orangehi;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-purple.png');
 }
 
 /* Temperature */
 
 #temperature {
-  color: @yellowhi;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-blue.png');
 }
 
 #temperature.critical {
-  color: @redhi;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-red.png');
 }
 
 /* Pulseaudio */
 
 #pulseaudio {
-  color: @bluehi;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-cyan.png');
 }
 
 #pulseaudio.muted {
-  color: @red;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-red.png');
 }
 
 /* Battery */
 
 #custom-battery {
-  color: @green;
-  padding-right: 12px;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-green.png');
 }
 
 #custom-battery.charging {
@@ -280,34 +322,85 @@ window#waybar.empty #window {
 }
 
 #custom-battery.discharging {
-  color: @yellow;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-yellow.png');
 }
 
 #custom-battery.low {
-  color: @orange;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-orange.png');
 }
 
 #custom-battery.critical {
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  color: @redhi;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-red.png');
 }
 
 /* Tray */
 
+#tray,
+#custom-wallpaper,
+#custom-pkg,
+#custom-weather,
+#custom-idle_mode {
+  background-image: url('/var/home/jpm/.config/waybar/stroke-white.png');
+}
+
 #tray {
-  margin-left: -8px;
-  margin-right: -4px;
+  padding-right: 0px;
 }
 
 /* Wallpaper rotation */
 
 #custom-wallpaper {
-  padding: 0px;
+  color: @cyan;
   font-size: 16px;
+  padding-top: 6px;
+  padding-left: 3px;
+  padding-right: 6px;
+  margin-left: -3px;
+}
+
+/* Idle Mode */
+
+#custom-idle_mode {
+  color: @blue;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-white.png');
+  font-size: 16px;
+  padding-right: 3px;
+  margin-left: -3px;
+}
+
+#custom-idle_mode.sleep {
+  padding-right: 11px;
+}
+
+#custom-idle_mode.hibernate,
+#custom-idle_mode.fade {
+  padding-right: 8px;
+}
+
+#custom-idle_mode.none {
+  color: @orangehi;
+}
+
+/* Pomodoro */
+
+#custom-pomodoro {
+  padding-right: 4px;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-white.png');
+}
+
+#custom-pomodoro.pomodoro-running {
+  padding-right: 3px;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-orange.png');
+}
+
+#custom-pomodoro.pomodoro-paused {
+  padding-right: 5px;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-red.png');
+}
+
+#custom-pomodoro.pomodoro-done {
+  padding-right: 5px;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-green.png');
 }
 
 /* Package upgrades */
@@ -320,72 +413,37 @@ window#waybar.empty #window {
   color: @orange;
 }
 
-/* Idle Mode */
-
-#custom-idle_mode {
-  font-family: "Font Awesome 6 Brands", "Font Awesome 6 Free";
-  padding-right: 5px;
-  margin-left: -3px;
-}
-
-#custom-idle_mode.none {
-  color: @orangehi;
-}
-
-/* Pomodoro */
-
-#custom-pomodoro {
-  color: @fg;
-  background: @bg;
-  border-left: solid 1px @fg;
-  margin: 0px;
-  padding-right: 0px;
-}
-
-#custom-pomodoro.pomodoro-running {
-  color: @bg;
-  background: @yellow;
-  padding-right: 5px;
-  border-right: solid 1px @fg;
-}
-
-#custom-pomodoro.pomodoro-paused {
-  color: @redhi;
-  padding-right: 5px;
-  border-right: solid 1px @fg;
-}
-
-#custom-pomodoro.pomodoro-done {
-  background: @green;
-  padding-right: 5px;
-  border-right: solid 1px @fg;
-}
-
 /* Clock */
 
 #custom-clock {
-  color: @fg;
-  background: @bg;
-  border-left: none;
-  border-right: solid 1px #fff;
+  color: @fg_dim;
   margin: 0px;
-  padding-right: 5px;
+  padding-right: 6px;
+  background-image: url('/var/home/jpm/.config/waybar/stroke-white.png');
+}
+
+/* Weather */
+
+#custom-weather {
+  padding-right: 4px;
+  padding-left: 2px;
 }
 
 /* Notifications */
 
 #custom-nc {
-  font-family: "NotoSansMono Nerd Font";
-  background: @grey06;
-  margin: 0px;
-  padding-right: 5px;
+  padding-right: 9px;
+  padding-left: 6px;
+  background: url('/var/home/jpm/.config/waybar/stroke-green.png') no-repeat center center;
+}
+
+#custom-nc.dnd-none {
+  padding-right: 10px;
   padding-left: 5px;
-  background: @fg;
-  color: @bg;
+
 }
 
 #custom-nc.dnd-none,
 #custom-nc.dnd-notification {
-  background: @grey03;
-  color: @fg;
+  background: url('/var/home/jpm/.config/waybar/stroke-red.png') no-repeat center center;
 }
