@@ -5,7 +5,7 @@ After=sway.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/distrobox-enter -n debian -- python3 /var/home/jpm/scripts/sway/sway-transparency.py
+ExecStart=/var/home/jpm/scripts/sway/sway-transparency.py
 Environment=PYENV_ROOT=/var/home/jpm/.pyenv
 #Restart=unless-stopped
 TimeoutSec=5
