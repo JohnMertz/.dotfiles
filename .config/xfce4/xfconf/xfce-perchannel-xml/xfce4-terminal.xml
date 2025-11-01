@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <channel name="xfce4-terminal" version="1.0">
-  <property name="color-foreground" type="string" value="#929283837474"/>
-  <property name="color-background" type="string" value="#282828282828"/>
-  <property name="color-palette" type="string" value="rgb(1,1,1);rgb(204,36,29);rgb(152,151,26);rgb(215,153,33);rgb(69,133,136);rgb(177,98,134);rgb(104,152,106);rgb(146,131,116);rgb(40,40,40);rgb(251,73,52);rgb(184,187,38);rgb(250,189,47);rgb(131,165,152);rgb(211,134,155);rgb(142,192,124);rgb(235,219,178)"/>
+  <property name="color-foreground" type="string" value="#5c5c6a6a7272"/>
+  <property name="color-background" type="string" value="#f2f2efefdfdf"/>
+  <property name="color-palette" type="string" value="rgb(35,42,46);rgb(248,85,82);rgb(141,161,1);rgb(223,160,0);rgb(58,148,197);rgb(223,105,186);rgb(53,167,124);rgb(166,176,160);rgb(45,53,59);rgb(230,126,128);rgb(167,192,128);rgb(219,188,127);rgb(127,187,179);rgb(214,153,182);rgb(131,192,146);rgb(211,198,170)"/>
   <property name="font-name" type="string" value="Anonymice Nerd Font Mono 11"/>
   <property name="misc-always-show-tabs" type="bool" value="false"/>
   <property name="misc-bell" type="bool" value="false"/>
@@ -32,5 +32,5 @@
   <property name="misc-search-dialog-opacity" type="uint" value="100"/>
   <property name="misc-show-unsafe-paste-dialog" type="bool" value="true"/>
   <property name="misc-right-click-action" type="string" value="TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU"/>
-  <property name="tab-activity-color" type="string" value="#fbfb49493434"/>
+  <property name="tab-activity-color" type="string" value="#e6e668676867"/>
 </channel>
