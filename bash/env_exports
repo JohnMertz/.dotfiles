@@ -35,3 +35,5 @@ export TERM="xterm" # Necessary for proper line reversing in SSH connection
 # This is an attempt to get tofi to run `TERMINAL=true` .desktop applications in alacritty
 export TERMINAL="alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/host.toml -e"
 
+# Tell Electron apps to try to use Wayland
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
