@@ -1,6 +1,6 @@
 [{
     "name": "bar",
-    "output": "HDMI-A-1",
+    "output": "eDP-1",
     "ipc": true,
     "id": "bar-1",
     "width": 75,
