@@ -1,8 +1,21 @@
-general.import = ["/var/home/jpm/.dotfiles/.config/alacritty/alacritty.toml"]
+general.import = ["/var/home/jpm/.dotfiles/.config/alacritty/alacritty.toml", "/var/home/jpm/.dotfiles/.config/alacritty/softwarm.toml"]
 
+# Invert primary colors for Host so that it stands out
 [colors.primary]
-background = "#010101"
-foreground = "#FEFEFE"
+foreground = '#f3f3ea'
+background = '#33332a'
+
+[colors.cursor]
+text = '#33332a'
+cursor = '#f3f3ea'
+
+[colors.vi_mode_cursor]
+cursor = '#33332a'
+text = '#f3f3ea'
+
+[colors.selection]
+text = '#13130a'
+background = '#f3f3ea'
 
 [env]
 TERM_TITLE = "Alacritty (Host)"

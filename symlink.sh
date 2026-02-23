@@ -15,6 +15,7 @@ function get_lincoln() {
     local REL=$(echo $DIR | sed "s,^./,,")
     echo "Looking for files in $ABS"
     for ITEM in $(find $DIR -maxdepth 1); do
+        [[ $ITEM == $0 ]] && continue
         [[ $ITEM == $DIR ]] && continue
         ITEM=$(echo $ITEM | sed "s,^$DIR,," | sed "s,^/,,")
         [[ $ITEM == '.linkignore' ]] && continue

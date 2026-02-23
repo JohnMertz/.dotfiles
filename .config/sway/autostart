@@ -7,8 +7,8 @@
 ################################################################################
 
 # Gtk themes
-exec gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox' &
-exec gsettings set org.gnome.desktop.interface icon-theme 'Gruvbox' &
+exec gsettings set org.gnome.desktop.interface gtk-theme 'SoftWarm' &
+#exec gsettings set org.gnome.desktop.interface icon-theme 'Gruvbox' &
 
 # X11 Cursor theme
 exec gsettings set org.gnome.desktop.interface cursor-theme 'FlatbedCursors-Orange' &
@@ -23,7 +23,9 @@ exec SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=${HOME}/.local/bin/ksshaskpass ssh-ad
 
 # Automatically restore last used output configuration
 # TODO: Need to add fail-safe to script in case the outputs are unavailable
-exec ${HOME}/scripts/sway/restore_displays.sh &
+# exec ${HOME}/scripts/sway/restore_displays.sh &
+exec waybar -c ${HOME}/.config/waybar/config &
+exec waybar -c ${HOME}/.config/waybar/config-DP-1 -s ${HOME}/.config/waybar/style-DP-1.css  &
 
 # Start pop-up terminal
 exec ${HOME}/scripts/sway/toggle_grave.sh &
@@ -40,7 +42,9 @@ exec ${HOME}/scripts/sway/idle.sh daemon &
 #exec systemctl --user restart swayidle.service &
 
 # Wallpapers
-exec systemctl --user restart wallpapers.service &
+#exec systemctl --user restart wallpapers.service &
+exec ${HOME}/scripts/sway/wallpaper.sh &
+exec PYENV_ROOT=${HOME}/.pyenv ${HOME}/scripts/sway/sway-transparency.py &
 
 # Notification daemon
 exec swaync -c ${HOME}/.dotfiles/.config/swaync/config.json -s .dotfiles/swaync/style.css &
@@ -86,7 +90,7 @@ exec flatpak run com.github.Murmele.Gittyup &
 exec flatpak run com.github.ungoogled_software.ungoogled_chromium --app="https://papillon.john.me.tz" --socket=wayland --ozone-platform=wayland --enable-reatures=UseOzonePlatform &
 
 # Assign workspaces to outputs
-exec ${HOME}/scripts/sway/arrange.pl &
+exec ${HOME}/.local/bin/arrange.pl &
 
 exec swaymsg workspace 1 &
 

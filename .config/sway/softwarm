@@ -1,0 +1,54 @@
+# Soft Warm Theme
+
+# Foreground (text) and Background
+
+set $fg #33332a
+set $bg #d3d3ca
+set $bright_fg #73736a
+set $bright_bg #f3f3ea
+
+# Regular Colors
+
+set $default #53534a
+set $red #936a6a
+set $green #6a936a
+set $yellow #93936a
+set $blue #6a6a93
+set $magenta #936a93
+set $cyan #6a9393
+set $white #d3d3ca
+
+# Bright Colors
+
+set $bright_default #13130a
+set $bright_red #b38a8a
+set $bright_green #8ab38a
+set $bright_yellow #b3b38a
+set $bright_blue #8a8ab3
+set $bright_magenta #b38ab3
+set $bright_cyan #8ab3b3
+set $bright_white #f3f3ea
+
+# Dim Colors
+
+set $fg_dim #232a2e
+set $bg_dim #f2efdf
+set $dim_default #53534a
+set $dim_red #734a4a
+set $dim_green #4a734a
+set $dim_yellow #73734a
+set $dim_blue #4a4a73
+set $dim_magenta #734a73
+set $dim_cyan #4a7373
+set $dim_white #b3b3aa
+
+# Greyscale
+
+set $grey0 #13130a
+set $grey1 #33332a
+set $grey2 #53534a
+set $grey3 #73736a
+set $grey4 #93938a
+set $grey5 #b3b3aa
+set $grey6 #d3d3ca
+set $grey7 #f3f3ea

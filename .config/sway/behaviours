@@ -23,7 +23,7 @@ assign [app_id="org.mozilla.Thunderbird"] 2
 assign [app_id="io.github.ungoogled_software.ungoogled_chromium"] 3
 
 # 4 - Git
-assign [app_id="com.github.gittyup.gittyup"] 4
+assign [app_id="com.github.Murmele.Gittyup"] 4
 
 # 5 - Phone (TODO: pick something more useful)
 assign [class="linphone"] 5
@@ -66,10 +66,13 @@ for_window [title="todotxt-machine"] floating enable, resize set height 600px, r
 for_window [class="Gvim"] floating enable
 
 # Float pulseaudio controls as sidebar
-for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, resize set height 1080px, resize set width 625px, move position 1080px -2px
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, resize set width 800px, resize set height 100ppt, resize grow up 30px, move position -15px -15px
 
 # Network manager does not tile well
 for_window [app_id="nm-connection-editor"] floating enable
+
+# Task manager pop-up
+for_window [app_id="Alacritty-grave"] floating enable, resize set height 600px, resize set width 800px, move position 990px 400px
 
 # Misc
 for_window [instance="Download"] floating enable

@@ -1,0 +1,385 @@
+/*
+ * Soft Warm GTK Theme
+ */
+
+/* =========================
+   LIBADWAITA COLORS
+   ========================= */
+
+@define-color accent_color #6a936a;
+@define-color accent_bg_color #936a6a;
+@define-color accent_fg_color #f3f3ea;
+
+@define-color destructive_color #936a6a;
+@define-color destructive_bg_color #936a6a;
+
+@define-color success_color #6a936a;
+@define-color warning_color #93936a;
+
+@define-color window_bg_color #d3d3ca;
+@define-color window_fg_color #33332a;
+
+@define-color headerbar_bg_color #e3e3da;
+@define-color headerbar_fg_color #33332a;
+@define-color headerbar_border_color #b3b3aa;
+
+@define-color view_bg_color #f3f3ea;
+@define-color view_fg_color #33332a;
+
+@define-color card_bg_color #e3e3da;
+@define-color card_fg_color #33332a;
+
+@define-color popover_bg_color #f3f3ea;
+@define-color popover_fg_color #33332a;
+
+@define-color dialog_bg_color #d3d3ca;
+
+@define-color sidebar_bg_color #c3c3ba;
+@define-color sidebar_fg_color #33332a;
+@define-color sidebar_backdrop_color #c3c3ba;
+
+@define-color border_color #b3b3aa;
+@define-color outline_color rgba(106,106,147,0.4);
+
+@define-color shade_color rgba(0,0,0,0.06);
+
+/* =========================
+   COLOR DEFINITIONS
+   ========================= */
+
+@define-color fg #33332a;
+@define-color bg #d3d3ca;
+@define-color bright_fg #73736a;
+@define-color bright_bg #f3f3ea;
+
+@define-color default #53534a;
+@define-color red #936a6a;
+@define-color green #6a936a;
+@define-color yellow #93936a;
+@define-color blue #6a6a93;
+@define-color magenta #936a93;
+@define-color cyan #6a9393;
+
+/* Derived / interpolated */
+@define-color bg_darker #c3c3ba;
+@define-color bg_darkest #b3b3aa;
+@define-color bg_lighter #e3e3da;
+
+@define-color border shade(@bg, 0.85);
+@define-color shadow rgba(0,0,0,0.08);
+
+@define-color accent @green;
+@define-color accent_hover shade(@green, 1.1);
+@define-color accent_active shade(@green, 0.9);
+@define-color accent_insensitive mix(@green, @bg, 0.6);
+
+@define-color destructive @red;
+@define-color success @green;
+@define-color warning @yellow;
+
+/* =========================
+   GLOBAL
+   ========================= */
+
+* {
+    font-family: Sans;
+    font-size: 10.5pt;
+    color: @fg;
+}
+
+window,
+.background {
+    background-color: @bg;
+    color: @fg;
+}
+
+/* =========================
+   HEADERBAR
+   ========================= */
+
+headerbar {
+    background-color: @bg_lighter;
+    border-bottom: 1px solid @border;
+    padding: 6px;
+}
+
+headerbar:backdrop {
+    background-color: @bg;
+}
+
+headerbar button {
+    border-radius: 6px;
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+button {
+    background-color: @bg_lighter;
+    border: 1px solid @border;
+    border-radius: 6px;
+    padding: 6px 10px;
+    transition: 150ms ease;
+}
+
+button:hover {
+    background-color: shade(@bg_lighter, 1.05);
+}
+
+button:active {
+    background-color: @bg_darker;
+}
+
+button:checked,
+button:active:checked {
+    background-color: @accent;
+    color: @bright_bg;
+    border-color: @accent_active;
+}
+
+button:disabled {
+    background-color: @bg;
+    color: @bright_fg;
+    border-color: @bg_darker;
+}
+
+/* Suggested / Destructive */
+
+button.suggested-action {
+    background-color: @accent;
+    color: @bright_bg;
+}
+
+button.destructive-action {
+    background-color: @destructive;
+    color: @bright_bg;
+}
+
+/* =========================
+   ENTRIES / TEXTFIELDS
+   ========================= */
+
+entry,
+textview {
+    background-color: @bright_bg;
+    border: 1px solid @border;
+    border-radius: 6px;
+    padding: 6px;
+    caret-color: @accent;
+}
+
+entry:focus,
+textview:focus {
+    border-color: @accent;
+    box-shadow: 0 0 0 2px alpha(@accent, 0.2);
+}
+
+entry:disabled {
+    background-color: @bg_darker;
+    color: @bright_fg;
+}
+
+/* =========================
+   SELECTION
+   ========================= */
+
+selection,
+*:selected {
+    background-color: alpha(@accent, 0.3);
+    color: @fg;
+}
+
+/* =========================
+   MENUS
+   ========================= */
+
+menu,
+popover {
+    background-color: @bright_bg;
+    border: 1px solid @border;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+menuitem {
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+menuitem:hover {
+    background-color: alpha(@accent, 0.15);
+}
+
+/* =========================
+   TOOLTIP
+   ========================= */
+
+tooltip {
+    background-color: @bg_darkest;
+    color: @bright_bg;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+/* =========================
+   NOTEBOOK (TABS)
+   ========================= */
+
+notebook tab {
+    background-color: @bg_lighter;
+    border: 1px solid @border;
+    padding: 6px 10px;
+}
+
+notebook tab:checked {
+    background-color: @bg;
+    border-bottom: 2px solid @accent;
+}
+
+/* =========================
+   SIDEBAR / LISTS
+   ========================= */
+
+list,
+row {
+    background-color: transparent;
+}
+
+row:selected {
+    background-color: alpha(@accent, 0.2);
+}
+
+row:hover {
+    background-color: alpha(@accent, 0.1);
+}
+
+/* =========================
+   SCROLLBARS
+   ========================= */
+
+scrollbar {
+    background-color: transparent;
+}
+
+scrollbar slider {
+    background-color: @bg_darkest;
+    border-radius: 10px;
+    min-width: 6px;
+    min-height: 6px;
+}
+
+scrollbar slider:hover {
+    background-color: @accent;
+}
+
+/* =========================
+   CHECKBOX / RADIO
+   ========================= */
+
+check,
+radio {
+    background-color: @bright_bg;
+    border: 1px solid @border;
+    border-radius: 4px;
+}
+
+check:checked,
+radio:checked {
+    background-color: @accent;
+    border-color: @accent_active;
+}
+
+/* =========================
+   SWITCH
+   ========================= */
+
+switch {
+    background-color: @bg_darkest;
+    border-radius: 12px;
+}
+
+switch slider {
+    background-color: @bright_bg;
+    border-radius: 50%;
+}
+
+switch:checked {
+    background-color: @accent;
+}
+
+/* =========================
+   SCALE / SLIDER
+   ========================= */
+
+scale trough {
+    background-color: @bg_darkest;
+    border-radius: 4px;
+}
+
+scale highlight {
+    background-color: @accent;
+    border-radius: 4px;
+}
+
+scale slider {
+    background-color: @bright_bg;
+    border: 1px solid @border;
+    border-radius: 50%;
+}
+
+/* =========================
+   PROGRESS BAR
+   ========================= */
+
+progressbar trough {
+    background-color: @bg_darkest;
+    border-radius: 6px;
+}
+
+progressbar progress {
+    background-color: @accent;
+    border-radius: 6px;
+}
+
+/* =========================
+   INFO BARS
+   ========================= */
+
+infobar.info {
+    background-color: alpha(@blue, 0.15);
+}
+
+infobar.warning {
+    background-color: alpha(@yellow, 0.2);
+}
+
+infobar.error {
+    background-color: alpha(@red, 0.2);
+}
+
+infobar.success {
+    background-color: alpha(@green, 0.2);
+}
+
+/* =========================
+   SEPARATORS
+   ========================= */
+
+separator {
+    background-color: @border;
+    min-height: 1px;
+    min-width: 1px;
+}
+
+/* =========================
+   LINKS
+   ========================= */
+
+link {
+    color: @accent;
+}
+
+link:hover {
+    color: @accent_hover;
+}

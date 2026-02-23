@@ -7,7 +7,7 @@ export SSH_AUTH_SOCK="$HOME/.local/state/ssh-agent.sock"
 export YDOTOOL_SOCKET="/tmp/.ydotool_socket"
 
 # GUI themes
-export GTK_THEME="Gruvbox"
+export GTK_THEME="SoftWarm"
 export ICON_THEME="Gruvbox"
 export CURSOR_THEME="FlatbedCursors-White"
 export PROFILE_NAME="Oled"

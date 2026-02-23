@@ -1,0 +1,10 @@
+[Unit]
+Description=Take ownership of necessary system files for other SystemD scripts
+
+[Service]
+Type=oneshot
+ExecStart=+chown %u:%g /sys/class/leds/tpacpi::kbd_backlight/brightness
+ExecStart=+chown %u:%g /tmp/.ydotool_socket
+
+[Install]
+WantedBy=user@.service

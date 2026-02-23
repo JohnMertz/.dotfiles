@@ -1,0 +1,77 @@
+# SoftWarm GTK2 Theme
+# Requires Murrine engine
+
+gtk-color-scheme = " \
+fg_color:#33332a \
+bg_color:#d3d3ca \
+base_color:#f3f3ea \
+text_color:#33332a \
+selected_bg_color:#6a6a93 \
+selected_fg_color:#f3f3ea \
+tooltip_bg_color:#b3b3aa \
+tooltip_fg_color:#f3f3ea"
+
+style "default"
+{
+    engine "murrine"
+    {
+        contrast = 0.8
+        reliefstyle = 2
+        highlight_shade = 1.05
+        lightborder_shade = 1.1
+        glow_shade = 1.0
+        gradient_shades = {1.02,1.0,0.98,0.96}
+        roundness = 4
+    }
+
+    xthickness = 2
+    ythickness = 2
+
+    fg[NORMAL]        = "#33332a"
+    fg[PRELIGHT]      = "#33332a"
+    fg[ACTIVE]        = "#33332a"
+    fg[SELECTED]      = "#f3f3ea"
+    fg[INSENSITIVE]   = "#73736a"
+
+    bg[NORMAL]        = "#d3d3ca"
+    bg[PRELIGHT]      = "#e3e3da"
+    bg[ACTIVE]        = "#c3c3ba"
+    bg[SELECTED]      = "#6a6a93"
+    bg[INSENSITIVE]   = "#d3d3ca"
+
+    base[NORMAL]      = "#f3f3ea"
+    base[ACTIVE]      = "#e3e3da"
+    base[SELECTED]    = "#6a6a93"
+    base[INSENSITIVE] = "#c3c3ba"
+
+    text[NORMAL]      = "#33332a"
+    text[ACTIVE]      = "#33332a"
+    text[SELECTED]    = "#f3f3ea"
+    text[INSENSITIVE] = "#73736a"
+}
+
+class "GtkWidget" style "default"
+
+style "button"
+{
+    engine "murrine"
+    {
+        gradient_shades = {1.04,1.0,0.96,0.94}
+        roundness = 4
+    }
+}
+class "GtkButton" style "button"
+
+style "entry"
+{
+    bg[NORMAL] = "#f3f3ea"
+    bg[ACTIVE] = "#ffffff"
+}
+class "GtkEntry" style "entry"
+
+style "tooltip"
+{
+    bg[NORMAL] = "#b3b3aa"
+    fg[NORMAL] = "#f3f3ea"
+}
+widget "gtk-tooltip*" style "tooltip"

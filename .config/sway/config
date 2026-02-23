@@ -30,22 +30,22 @@ input * repeat_rate 30
 seat seat0 xcursor_theme FlatbedCursors-White
 
 # Minimize borders from all windows
-hide_edge_borders both
-default_floating_border pixel 1
-default_border pixel 1
+hide_edge_borders none
+default_floating_border pixel 2
+default_border pixel 2
 
 # Font only visible in tabbed mode. Also inheritted by bar.
-font pango:Anonymous Pro 11
+font pango:Anonymice Nerd Font Bold 11
 
 # Start Waybar with IPC functionality (requires waybar>=0.9.9, wlroots>=0.15)
 bar bar-1 {
     swaybar_command waybar -c $HOME/.config/waybar/config
-    icon_theme Gruvbox
+    #icon_theme Gruvbox
     #mode hide
 }
 
 # Gaps are a dumb waste of space, especially on a small display
-gaps inner 0
+gaps inner 15
 gaps outer 0
 
 # Color definitions
@@ -54,12 +54,12 @@ include $HOME/.dotfiles/.config/sway/colorscheme
 # Assign colors to elements (TODO: actually name the colors for better readability)
 client.background       $bg
 
-# Property Name         Border      Background  Text        Hilight     Child Border
-client.focused          $orangehi   $grey02     $orangehi   $orangehi   $orangehi
-client.focused_inactive $orangehi   $grey02     $fg         $fg         $white
-client.unfocused        $fg         $bg         $fg         $fg         $grey07
-client.urgent           $redhi      $grey02     $redhi      $redhi      $fg
-client.placeholder      $yellow     $grey07     $blue       $blue       $fg
+# Property Name         Border         Background    Text          Hilight       Child Border
+client.focused          $green         $green        $bright_default    $dim_green  $dim_green
+client.focused_inactive $bright_green  $bright_green $default $green $green
+client.unfocused        $bright_fg     $bright_bg    $fg           $fg           $grey7
+client.urgent           $bright_red    $grey2        $bright_red   $bright_red   $fg
+client.placeholder      $bright_yellow $grey7        $blue         $blue         $fg
 # Feature request (https://github.com/swaywm/sway/pull/7208)
 #client.sticky           $rylw   $rylw   $rylw   $rylw   $rylw
 #client.sticky_inactive  $rmgt   $rmgt   $rmgt   $rmgt   $rmgt

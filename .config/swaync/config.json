@@ -1,7 +1,7 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
-  "positionX": "right",
-  "positionY": "top",
+  "positionX": "left",
+  "positionY": "bottom",
   "layer": "top",
   "control-center-margin-top": 0,
   "control-center-margin-bottom": 0,
@@ -36,7 +36,6 @@
     }
   },
   "widgets": [
-    "label",
     "menubar",
     "buttons-grid",
     "volume",
@@ -53,10 +52,6 @@
     },
     "dnd": {
       "text": "Do Not Disturb"
-    },
-    "label": {
-      "max-lines": 1,
-      "text": "Control Center"
     },
     "mpris": {
       "image-size": 96,

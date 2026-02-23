@@ -1,0 +1,11 @@
+[Unit]
+Description=Fix LED permissions and group ownership
+After=multi-user.target
+
+[Service]
+ExecStart=/bin/bash -c 'find /sys/class/leds/ -name "brightness" -exec chgrp leds {} \; && find /sys/class/leds/ -name "brightness" -exec chmod g+w {} \;'
+Type=oneshot
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

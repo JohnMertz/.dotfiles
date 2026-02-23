@@ -41,8 +41,7 @@ bindsym $mod+u exec ${HOME}/scripts/tofi/tofi-drun.sh
 # Middle: Fedora distrobox
 bindsym $mod+e exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/fedora.toml
 # Add Shift: start a remote shell
-# TODO: bindsym $mod+Shift+e exec ${HOME}/scripts/wofi/wofi-ssh-menu.sh
-bindsym $mod+Shift+e exec ${HOME}/scripts/rofi/rofi-ssh-menu.sh
+bindsym $mod+Shift+e exec ${HOME}/scripts/tofi/tofi-menu.sh SSH
 
 # Ring: start a file manager
 bindsym $mod+o exec /usr/bin/thunar
@@ -50,8 +49,7 @@ bindsym $mod+o exec /usr/bin/thunar
 bindsym $mod+Shift+o exec /usr/bin/alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/host.toml -e sudo YAZI_CONFIG_HOME=${HOME}/.dotfiles/.config/yazi ${HOME}/.nix-profile/bin/yazi
 
 # Pinky: Open Browser
-# TODO: bindsym $mod+a exec ${HOME}/scripts/tofi/tofi-vpn.sh
-bindsym $mod+a exec ${HOME}/scripts/rofi/rofi-openvpn.sh
+bindsym $mod+a exec ${HOME}/scripts/tofi/tofi-menu.sh VPN
 # Add Shift: Secondary Browser
 bindsym $mod+Shift+a exec ${HOME}/scripts/send-to-kodi.sh
 
