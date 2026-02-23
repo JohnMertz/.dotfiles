@@ -1,8 +1,9 @@
 [{
     "name": "bar",
-    "output": "eDP-1",
+    "output": "HDMI-A-1",
     "ipc": true,
     "id": "bar-1",
+    "width": 75,
     "modes": {
 	"invisible": {
 	    "passthrough": true,
@@ -33,13 +34,13 @@
             "gtk-layer-shell": false,
 	}
     },
-    "position": "bottom",
+    "position": "left",
     "reload_style_on_change": true,
     "mode": "dock",
     // Choose the order of the modules
-    "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
-    "modules-center": [],
-    "modules-right": ["custom/keyboard", "backlight", "cpu", "memory", "custom/disk", "temperature", "pulseaudio", "custom/battery", "tray", "custom/wallpaper", "custom/pkg", "custom/idle_mode", "custom/pomodoro", "custom/clock", "custom/weather", "custom/nc"],
+    "modules-left": ["sway/mode", "sway/workspaces"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["cpu", "memory", "custom/disk", "temperature", "custom/battery", "backlight", "pulseaudio", "tray", "custom/keyboard", "custom/wallpaper", "custom/pkg", "custom/idle_mode", "custom/pomodoro", "custom/clock", "custom/weather", "custom/nc"],
     // Modules configuration
     "sway/workspaces": {
         // "disable-scroll": true,
@@ -75,6 +76,8 @@
     },
     "sway/window": {
         "format": "{title}",
+	"rotate": 270,
+	"swap-icon-label": false,
         "rewrite": {
             "(.*) - Mozilla Firefox": "🌎 $1",
             "vim (.*)": " $1",
@@ -139,13 +142,14 @@
         "format": "{}",
         "return-type": "json",
         "exec": "${HOME}/scripts/waybar/waybar-battery.sh bar",
+	"exec-if": "which acpi 2>/dev/null; [[ $? == 0 ]] && [[ \"$(acpi -b)\" != \"No support for device type: power_supply\" ]]",
         "interval": 10,
         "on-click": "${HOME}/scripts/waybar/waybar-battery.sh notify"
     },
     "pulseaudio": {
         "scroll-step": 1,
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon}{volume}%",
+        "format-bluetooth": "{icon} {volume}",
         "format-muted": "⨯",
         "format-icons": {
             "headphones": "",
@@ -163,19 +167,21 @@
     },
     "custom/pkg": {
         "interval": 360,
-        "tooltip-format": "<span font='Anonymous Pro 12'><big>{:%d %B}</big>\n<tt><small>{calendar}</small></tt></span>",
+        "tooltip-format": "{tooltip}",
         "on-click": "alacritty --config-file ~/.dotfiles/.config/alacritty/host.toml --class Alacritty-grave -e ${HOME}/scripts/waybar/waybar-pkg.sh upgrade",
         "return-type": "json",
+	"format": "{text}",
         "exec": "${HOME}/scripts/waybar/waybar-pkg.sh bar"
     },
     "tray": {
-        "icon-size": 24,
-        "spacing": 0
+        "icon-size": 18,
+        "spacing": 2
     },
     "custom/wallpaper": {
         "interval": 86400,
         "exec": "echo '🖽\nRotate wallpaper\nactive'",
-        "on-click": "${HOME}/scripts/sway/rotate-wallpaper.sh"
+        "on-click": "${HOME}/scripts/sway/wallpaper.sh",
+        "on-click-right": "${HOME}/scripts/sway/toggle_fade.sh"
     },
     "custom/idle_mode": {
         "interval": 1,
@@ -205,15 +211,15 @@
     },
     "custom/nc": {
     	"tooltip": true,
-    	"format": "{icon}",
+    	"format": "{icon} {text}",
     	"format-icons": {
             "none": " ",
             "notification": " <span foreground=\"red\"><sup></sup></span>",
             "dnd-none": " ",
-            "dnd-notification": " <span foreground=\"white\"><sup></sup></span>",
-            "inhibited-notification": " <span foreground=\"white\"><sup></sup></span>",
+            "dnd-notification": " <span foreground=\"red\"><sup></sup></span>",
+            "inhibited-notification": " <span foreground=\"red\"><sup></sup></span>",
             "inhibited-none": " ",
-            "dnd-inhibited-notification": " <span foreground=\"white\"><sup></sup></span>",
+            "dnd-inhibited-notification": " <span foreground=\"red\"><sup></sup></span>",
             "dnd-inhibited-none": " "
     	},
     	"return-type": "json",
@@ -221,7 +227,8 @@
     	"exec-if": "which swaync-client",
     	"on-click": "swaync-client --toggle-panel",
     	"on-click-right": "swaync-client --toggle-dnd",
-    	"escape": true
+    	"escape": true,
+	"name": "nc"
     }
 }
 ]

@@ -182,7 +182,8 @@
     "custom/wallpaper": {
       "interval": 86400,
       "exec": "echo '🖽\nRotate wallpaper\nactive'",
-      "on-click": "${HOME}/scripts/sway/rotate-wallpaper.sh"
+      "on-click": "${HOME}/scripts/sway/wallpaper.sh",
+      "on-click-right": "${HOME}/scripts/sway/toggle_fade.sh"
     },
     "custom/idle_mode": {
       "interval": 1,

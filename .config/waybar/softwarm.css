@@ -1,0 +1,54 @@
+/*
+* Soft Warm Theme
+*/
+
+/* Foreground (text) and Background */
+
+@define-color fg #33332a;
+@define-color bg #d3d3ca;
+@define-color bright_fg #73736a;
+@define-color bright_bg #f3f3ea;
+
+/* Regular Colors */
+
+@define-color default #53534a;
+@define-color red #936a6a;
+@define-color green #6a936a;
+@define-color yellow #93936a;
+@define-color blue #6a6a93;
+@define-color magenta #936a93;
+@define-color cyan #6a9393;
+@define-color white #d3d3ca;
+
+/* Bright Colors */
+
+@define-color bright_default #13130a;
+@define-color bright_red #b38a8a;
+@define-color bright_green #8ab38a;
+@define-color bright_yellow #b3b38a;
+@define-color bright_blue #8a8ab3;
+@define-color bright_magenta #b38ab3;
+@define-color bright_cyan #8ab3b3;
+@define-color bright_white #f3f3ea;
+
+/* Dim Colors */
+
+@define-color dim_default #53534a;
+@define-color dim_red #734a4a;
+@define-color dim_green #4a734a;
+@define-color dim_yellow #73734a;
+@define-color dim_blue #4a4a73;
+@define-color dim_magenta #734a73;
+@define-color dim_cyan #4a7373;
+@define-color dim_white #b3b3aa;
+
+/* Greyscale */
+
+@define-color grey0 #13130a;
+@define-color grey1 #33332a;
+@define-color grey2 #53534a;
+@define-color grey3 #73736a;
+@define-color grey4 #93938a;
+@define-color grey5 #b3b3aa;
+@define-color grey6 #d3d3ca;
+@define-color grey7 #f3f3ea;

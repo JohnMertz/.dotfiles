@@ -1,0 +1,104 @@
+@import "softwarm.css";
+
+/* Global */
+
+* {
+  font-family: "Anonymice Nerd Font", "Font Awesome 6 Brands", "Font Awesome 6 Free", Monospace;
+  font-size: 14px;
+  color: @fg;
+}
+
+window#waybar {
+  background-color: @bg;
+  border-right: 2px solid @bright_fg;
+  box-shadow: inset -2px -2px @fg, inset -2px 2px @fg;
+  margin: 10px;
+}
+
+/* Multi */
+
+#mode,
+#workspaces button,
+#custom-clock,
+#custom-weather {
+  background-color: @bright_bg;
+  color: @bright_fg;
+  padding: 4px;
+  border: 1px solid @fg;
+  box-shadow: inset 2px 0px 0px 0px @bg, inset -2px 0px 0px 0px @bg;
+}
+
+/* Mode */
+
+#mode {
+  border-radius: 4px;
+}
+
+/* Workspaces */
+
+#mode,
+#workspaces button {
+  margin: 6px 0px 6px 5px;
+  padding: 0px 10px;
+  box-shadow: inset 2px -2px 0px 0px @bg, inset -2px 2px 0px 0px @bg;
+}
+
+/* #workspaces button:nth-child(9n+1) { */
+
+#workspaces {
+  margin-top: 7px;
+  background: none;
+  margin: 0px;
+}
+
+#workspaces button.focused, #workspaces button:hover {
+  background: @bright_green;
+  box-shadow: inset 2px -2px 0px 0px @green, inset -2px 2px 0px 0px @green;
+  color: @grey0;
+}
+
+#workspaces button.urgent {
+  background: @bright_fg;
+  box-shadow: inset 2px -2px 0px 0px @fg, inset -2px 2px 0px 0px @fg;
+  color: @grey0;
+}
+
+/* Window title */
+
+window#waybar.empty #window {
+  background: none;
+}
+
+#window {
+  text-shadow: -1px -1px @bright_bg, -1px 1px @bright_bg, 1px -1px @bright_bg, 1px 1px @bright_bg;
+  color: @bright_bg;
+  font-weight: bold;
+  padding: 0px;
+}
+
+/* Shared Clock Area */
+
+#custom-clock,
+#custom-weather {
+  background: @grey3;
+  color: @grey7;
+  margin: 6px 8px 6px 0px;
+}
+
+/* Clock */
+
+#custom-clock {
+  padding-left: 6px;
+  border-left: solid 1px @fg;
+  border-right: none;
+  margin-right: 0px;
+  box-shadow: inset 2px 2px 0px 0px @grey2, inset 2px -2px 0px 0px @grey2;
+}
+
+/* Weather */
+
+#custom-weather {
+  border-right: solid 1px @fg;
+  border-left: none;
+  box-shadow: inset -2px -2px 0px 0px @grey2, inset -2px 2px 0px 0px @grey2;
+}
