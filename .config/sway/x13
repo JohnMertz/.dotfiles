@@ -6,8 +6,7 @@
 # Outputs
 ################################################################################
 
-output HDMI-A-1 enable mode 3840x2160@120.000Hz scale 1.33333333333 pos 0 0
-output DP-1  enable mode 3200x1800@40.064Hz scale 2 pos 2880 0 transform 90
+output eDP-1 enable mode 2560x1600@60.001Hz scale 1.5
 
 ################################################################################
 # Keyboard

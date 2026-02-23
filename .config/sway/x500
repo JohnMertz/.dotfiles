@@ -1,0 +1,27 @@
+# vim: ft=sh
+
+# X500 device configurations
+
+################################################################################
+# Outputs
+################################################################################
+
+output HDMI-A-1 enable mode 3840x2160@120.000Hz scale 1.33333333333 pos 0 0
+output DP-1  enable mode 3200x1800@40.064Hz scale 2 pos 2880 0 transform 90
+
+################################################################################
+# Keyboard
+################################################################################
+
+# I use a Dvorak keyboard, like a weirdo
+input * xkb_layout "us,us"
+input * xkb_variant "dvorak,"
+input * xkb_options "grp:win_space_toggle, compose:ralt"
+
+################################################################################
+# Mouse
+################################################################################
+
+# TrackPoint acceleration
+input 1133:49291:Logitech_G502_HERO_SE accel_profile flat
+input 1133:49291:Logitech_G502_HERO_SE pointer_accel -0.966
