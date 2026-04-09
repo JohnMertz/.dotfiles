@@ -7,6 +7,16 @@
 ################################################################################
 
 output eDP-1 enable mode 2560x1600@60.001Hz scale 1.5
+output DP-5  enable mode 3840x2160@60.000Hz scale 1.3333 pos 0 0
+output DP-6 enable mode 3200x1800@40.064Hz scale 2 transform 90 pos 2880 0
+
+################################################################################
+# Appearance
+################################################################################
+
+# 13" is too small for big gaps
+gaps inner 5
+gaps outer 0
 
 ################################################################################
 # Keyboard
@@ -47,3 +57,9 @@ bindswitch --reload tablet:off exec ${HOME}/scripts/thinkpad/tablet_mode.sh off 
 
 # Restore display configuration on reload
 bindswitch --reload lid:on /home/jpm/scripts/sway/displays.pl detached
+
+################################################################################
+# Device-Specific Autostart
+################################################################################
+
+exec waybar -c ~/.config/waybar/config-eDP-1 -s ~/.config/waybar/style-eDP-1.css &

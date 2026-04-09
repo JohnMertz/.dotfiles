@@ -44,11 +44,7 @@ bar bar-1 {
     #mode hide
 }
 
-# Gaps are a dumb waste of space, especially on a small display
-gaps inner 15
-gaps outer 0
-
-# Color definitions
+# Color definitions, symlink to theme file
 include $HOME/.dotfiles/.config/sway/colorscheme
 
 # Assign colors to elements (TODO: actually name the colors for better readability)
