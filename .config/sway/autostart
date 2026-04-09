@@ -24,8 +24,8 @@ exec SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=${HOME}/.local/bin/ksshaskpass ssh-ad
 # Automatically restore last used output configuration
 # TODO: Need to add fail-safe to script in case the outputs are unavailable
 # exec ${HOME}/scripts/sway/restore_displays.sh &
-exec waybar -c ${HOME}/.config/waybar/config &
-exec waybar -c ${HOME}/.config/waybar/config-DP-1 -s ${HOME}/.config/waybar/style-DP-1.css  &
+exec waybar -c ${HOME}/.config/waybar/config -s ${HOME}/.config/waybar/style.css &
+exec waybar -c ${HOME}/.config/waybar/config-Paperlike -s ${HOME}/.config/waybar/style-Paperlike.css  &
 
 # Start pop-up terminal
 exec ${HOME}/scripts/sway/toggle_grave.sh &

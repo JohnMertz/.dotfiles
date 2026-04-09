@@ -88,9 +88,9 @@ window#waybar {
 }
 
 #workspaces button.urgent {
-  background: @bright_fg;
-  box-shadow: inset 2px -2px 0px 0px @fg, inset -2px 2px 0px 0px @fg;
-  color: @grey0;
+  background: @bright_red;
+  box-shadow: inset 2px -2px 0px 0px @red, inset -2px 2px 0px 0px @red;
+  color: @red;
 }
 
 /* Window title */
