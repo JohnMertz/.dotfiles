@@ -65,7 +65,7 @@ exec pasystray &
 # TODO: as above, need new calendaring solution.
 
 # 1:chat
-exec flatpak run com.mattermost.Desktop --socket=wayland --ozone-platform=wayland --enable-reatures=UseOzonePlatform &
+#exec flatpak run com.mattermost.Desktop --socket=wayland --ozone-platform=wayland --enable-reatures=UseOzonePlatform &
 exec flatpak run chat.rocket.RocketChat --socket=wayland --ozone-platform=wayland --enable-reatures=UseOzonePlatform &
 exec flatpak run network.loki.Session &
 
