@@ -321,14 +321,14 @@ bindsym $mod+Shift+Delete exec swaync-client --toggle-dnd
 
 # Miscellaneous
 
-# PrintScreen: capture output
-bindsym Print exec /usr/bin/grimshot copy output
-# Add Shift: capture window
-bindsym Shift+Print exec /usr/bin/grimshot copy active
-# Add Control: capture region
-bindsym Shift+Control+Print exec /usr/bin/grimshot copy active
-# Tab: Quick change. Shows all windows on all pages by name in wofi
-bindsym $mod+tab exec ${HOME}/scripts/sway/sway-alt-tab.sh
+# Screenshot selector
+bindsym $mod+Print exec ${HOME}/scripts/tofi/tofi-grimshot.sh copy
+# Add Shift: save instead of copy
+bindsym $mod+Shift+Print exec ${HOME}/scripts/tofi/tofi-grimshot.sh save
+# PrintScreen: quick capture window
+bindsym Print exec /usr/bin/grimshot copy output --notify
+# Add Shift: quick save window
+bindsym Shift+Print exec /usr/bin/grimshot save output --notify
 
 # Space: Update waybar to reflect keyboard layout toggle
 bindsym $mod+space exec pkill -SIGRTMIN+10 waybar
