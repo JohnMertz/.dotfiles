@@ -17,5 +17,4 @@
 .config/nvim/config.ld
 .config/nvim/packer_snapshot
 .config/nvim/.luacheckrc
-.config/waybar/config
 systemd/default.target.wants
