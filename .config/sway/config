@@ -29,6 +29,10 @@ input * repeat_rate 30
 
 seat seat0 xcursor_theme FlatbedCursors-White
 
+# modest gaps
+gaps inner 5
+gaps outer 0
+
 # Minimize borders from all windows
 hide_edge_borders none
 default_floating_border pixel 2
