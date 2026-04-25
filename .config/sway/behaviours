@@ -18,6 +18,7 @@ for_window [class="Mattermost"] layout tabbed
 
 # 2 - Mail - Thunderbird seems to change the way it identifies with every update!
 assign [app_id="org.mozilla.Thunderbird"] 2
+assign [app_id="chrome-jnpecgipniidlgicjocehkhajgdnjekh-Default"] 2
 
 # 3 - Secondary Browser
 assign [app_id="io.github.ungoogled_software.ungoogled_chromium"] 3
