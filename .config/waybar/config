@@ -2,8 +2,8 @@
     "name": "bar",
     "output": [ __OUTPUTS__ ],
     "ipc": true,
-    "id": "bar-2",
-    "height": 32,
+    "id": "bar-1",
+    "width": 75,
     "modes": {
 	"invisible": {
 	    "passthrough": true,
@@ -17,30 +17,30 @@
 	    "visible": true,
 	    "layer": "top",
             "exclusive": true,
-            "gtk-layer-shell": true,
+            "gtk-layer-shell": true
 	},
 	"overlay": {
 	    "passthrough": false,
 	    "visible": true,
 	    "layer": "overlay",
             "exclusive": false,
-            "gtk-layer-shell": false,
+            "gtk-layer-shell": false
 	},
 	"hide": {
 	    "passthrough": false,
 	    "visible": true,
 	    "layer": "overlay",
             "exclusive": false,
-            "gtk-layer-shell": false,
+            "gtk-layer-shell": false
 	}
     },
-    "position": "top",
+    "position": "left",
     "reload_style_on_change": true,
     "mode": "dock",
     // Choose the order of the modules
-    "modules-left": ["sway/mode", "sway/workspaces"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["custom/clock", "custom/weather"],
+    "modules-left": ["sway/mode", "sway/workspaces", "sway/window"],
+    "modules-center": [],
+    "modules-right": ["cpu", "memory", "custom/disk", "temperature", "custom/battery", "backlight", "pulseaudio", "tray", "custom/keyboard", "custom/wallpaper", "custom/pkg", "custom/idle_mode", "custom/pomodoro", "custom/clock", "custom/weather", "custom/nc"],
     // Modules configuration
     "sway/workspaces": {
         // "disable-scroll": true,
@@ -76,6 +76,7 @@
     },
     "sway/window": {
         "format": "{title}",
+	"rotate": 270,
 	"swap-icon-label": false,
         "rewrite": {
             "(.*) - Mozilla Firefox": "🌎 $1",
@@ -159,8 +160,8 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-scroll-up": "${HOME}/scripts/waybar/waybar-volume.sh up 5",
-        "on-scroll-down": "${HOME}/scripts/waybar/waybar-volume.sh down 5",
+        "on-scroll-up": "${HOME}/scripts/waybar/waybar-volume.sh up 5 --force",
+        "on-scroll-down": "${HOME}/scripts/waybar/waybar-volume.sh down 5 --force",
         "on-click": "${HOME}/scripts/waybar/waybar-audio.sh",
         "on-click-right": "${HOME}/scripts/waybar/waybar-volume.sh mute-sink"
     },
