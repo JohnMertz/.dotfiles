@@ -26,6 +26,7 @@ exec SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=${HOME}/.local/bin/ksshaskpass ssh-ad
 # exec ${HOME}/scripts/sway/restore_displays.sh &
 exec waybar -c ${HOME}/.config/waybar/config -s ${HOME}/.config/waybar/style.css &
 exec waybar -c ${HOME}/.config/waybar/config-Paperlike -s ${HOME}/.config/waybar/style-Paperlike.css  &
+exec ${HOME}/scripts/sway/dock.sh startup &
 
 # Start pop-up terminal
 exec ${HOME}/scripts/sway/toggle_grave.sh &
