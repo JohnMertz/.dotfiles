@@ -1,9 +1,12 @@
 @import "../waybar/softwarm.css";
 
+* {
+  font-family: "Anonymice Nerd Font";
+}
+
 /* Notifications in popout sidebar */
 
 .notification-row {
-  font-family: "Anonymice Nerd Font";
   transition: all 200ms ease;
   outline: none;
   margin: 0px;
