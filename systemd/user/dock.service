@@ -1,0 +1,7 @@
+[Unit]
+Description=Perform Dock behaviour upon UDev event
+Conflicts=undock.service
+
+[Service]
+Type=oneshot
+ExecStart=/var/home/jpm/scripts/sway/dock.sh connect
