@@ -267,8 +267,8 @@ fi
 
 # If directory was just changed detect local environment
 if [[ $DIRCHANGED ]]; then
-    # Reload Plenv version and PERL5LIB paths
-    source ${HOME}/.dotfiles/bash/plenv-path.sh
+    # Reload executable paths for local binaries
+    source ${HOME}/.dotfiles/bash/path.sh
     # If moved to the root of a git repository, print onefetch
     if [ -f "$PWD/.git/config" ]; then
         if [[ -z $GIT_REPO ]] || ! grep -q $GIT_REPO <<<$(pwd); then

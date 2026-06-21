@@ -23,11 +23,6 @@ if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
 	source $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
 
-# Perl plenv 
-if [ -d "$HOME/.plenv/bin" ]; then
-	export PATH="$HOME/.plenv/bin:$PATH"
-fi
-
 # Private scripts
 if [ -d "$HOME/.private-scripts" ]; then
 	PATH="$HOME/.private-scripts:$PATH"
@@ -45,17 +40,21 @@ PATH="${HOME}/go/bin:$PATH"
 PATH="${HOME}/perl5/bin:$PATH"
 
 # Python
-export PYENV_ROOT="$HOME/.pyenv"
-PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-	eval "$(pyenv init -)"
+if [ -e $HOME/.pyenv ]; then
+	export PYENV_ROOT="$HOME/.pyenv"
+	PATH="$PYENV_ROOT/bin:$PATH"
+	if command -v pyenv 1>/dev/null 2>&1; then
+		eval "$(pyenv init -)"
+	fi
+	for dir in `find ${HOME}/.pyenv/versions/* -maxdepth 0`; do
+		PATH="$PATH:${dir}/bin"
+	done
 fi
-for dir in `find ${HOME}/.pyenv/versions/* -maxdepth 0`; do
-	PATH="$PATH:${dir}/bin"
-done
 
 # Rust
-PATH="${HOME}/.cargo/bin:$PATH"
+if [ -e $HOME/.cargo/bin ]; then
+	PATH="${HOME}/.cargo/bin:$PATH"
+fi
 
 if [ -f "/run/.containerenv" ]; then
 	source "$HOME/.dotfiles/bash/path.distrobox"

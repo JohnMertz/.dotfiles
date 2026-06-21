@@ -20,9 +20,6 @@ export GDK_BACKEND="wayland"
 export DCONF=".config/dconf/user"
 export THEME="dark"
 
-# Perl junk to allow scripts to run for non-interactive sessions
-eval "$(plenv init -)"
-
 source "$HOME/.dotfiles/bash/path"
 if [ -f "/run/.containerenv" ]; then
   source "$HOME/.dotfiles/bash/bash_profile.distrobox"

@@ -58,10 +58,9 @@ if [ -f ${HOME}/.dotfiles/.bash_aliases ]; then
 fi
 
 # Rust 
-. "$HOME/.cargo/env"
-# Perl
-eval "$(plenv init -)"
-source ${HOME}/.dotfiles/bash/plenv-path.sh
+if [ -e $HOME/.cargo/env ]; then
+    . "$HOME/.cargo/env"
+fi
 
 # Set initial title
 echo -e -n "\033]2;Welcome to Bash - $TERM_TITLE\007"
@@ -87,3 +86,21 @@ PROMPT_COMMAND="source ${HOME}/.dotfiles/bash/prompt.sh"
 PROMPT_COMMAND="$PROMPT_COMMAND;printf \"\a\""
 # Append previous command to history immediately
 PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
+
+export OLLAMA_NUM_THREADS=16
+export OLLAMA_KEEP_ALIVE=5m
+
+# Persistent SSH Keys
+[ -e /tmp/ssh-agent.sock ] && SSH_AUTH_SOCK=/tmp/ssh-agent.sock
+[ -e /tmp/ssh-agent.pid ] && SSH_AGENT_PID=$(cat /tmp/ssh-agent.pid)
+if [ -z $SSH_AGENT_PID ] || [ -z $SSH_AUTH_SOCK ]; then
+  eval $(ssh-agent -a /tmp/ssh-agent.sock) >/dev/null
+  ssh-add
+  echo $SSH_AGENT_PID > /tmp/ssh-agent.pid
+  eval $(keychain --eval --agents gpg 867501AB)
+fi
+
+# Attach to or start next available tmux session
+if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && [ -n "$SSH_CONNECTION" ]; then
+    exec ~/scripts/tmux-attach.sh
+fi
