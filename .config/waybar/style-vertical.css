@@ -1,3 +1,5 @@
+/* Colors */
+
 @import "softwarm.css";
 
 /* Global */
@@ -13,6 +15,16 @@ window#waybar {
   border-right: 2px solid @bright_fg;
   box-shadow: inset -2px -2px @fg, inset -2px 2px @fg;
   margin: 10px;
+}
+
+/* Tooltip */
+
+tooltip {
+    background-color: @bright_bg;
+    border: solid 1px @fg;
+    box-shadow: inset -2px -2px @bg, inset -2px 2px @bg;
+    color: @fg;
+    text-shadow: none;
 }
 
 /* Multi */
