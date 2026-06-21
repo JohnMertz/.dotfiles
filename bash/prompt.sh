@@ -356,14 +356,19 @@ if [[ $DIRCHANGED ]]; then
 fi
 
 # Opening # so that PS1 gets interpretted as a comment if pasted into a terminal or script
+if [ -z $TMUX ]; then
+    COMMENT="#"
+else
+    COMMENT="#[$(tmux display-message -p "#{window_index}")]"
+fi
 if [[ $RET -gt 128 ]]; then
-    PS1="${COLOURS["$SIG","B"]}# ${SIGNALS["$RET"]}"
+    PS1="${COLOURS["$SIG","B"]}$COMMENT ${SIGNALS["$RET"]}"
     LASTB=$SIG
 elif [[ $RET -gt 0 ]]; then
-    PS1="${COLOURS["$ERROR","B"]}# $RET"
+    PS1="${COLOURS["$ERROR","B"]}$COMMENT $RET"
     LASTB=$ERROR
 else
-    PS1="\[\e[0;3${TEXT};4${P}m\]#"
+    PS1="\[\e[0;3${TEXT};4${P}m\]$COMMENT"
     LASTB=$P
 fi
 
