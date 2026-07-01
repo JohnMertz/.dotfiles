@@ -104,16 +104,12 @@ tooltip {
 
 /* Window title */
 
-window#waybar.empty #window {
-  background: none;
-}
-
 #window {
   text-shadow: -1px -1px @bright_bg, -1px 1px @bright_bg, 1px -1px @bright_bg, 1px 1px @bright_bg;
   color: @bright_bg;
   font-weight: bold;
   padding: 0px;
-  margin-left: 10px;
+  margin-top: 10px;
 }
 
 /* Bottom General */
