@@ -1,0 +1,7 @@
+
+# Distrobox-specific or host-specific configs (loads $DISTROBOX variable, necessary for PATH)
+if [ -f "/run/.containerenv" ]; then
+    source "$HOME/.dotfiles/bash/bash_login.distrobox"
+else
+    source "$HOME/.dotfiles/bash/bash_login.host"
+fi
