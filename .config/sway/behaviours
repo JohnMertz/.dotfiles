@@ -17,7 +17,7 @@ assign [class="discord"] 1
 for_window [class="Mattermost"] layout tabbed
 
 # 2 - Mail - Thunderbird seems to change the way it identifies with every update!
-assign [app_id="org.mozilla.Thunderbird"] 2
+assign [app_id="org.mozilla.thunderbird"] 2
 assign [app_id="chrome-jnpecgipniidlgicjocehkhajgdnjekh-Default"] 2
 #for_window [app_id="chrome-jnpecgipniidlgicjocehkhajgdnjekh-Default"] layout tabbed
 #workspace 2 workspace_layout tabbed
