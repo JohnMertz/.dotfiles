@@ -37,3 +37,6 @@ export TERMINAL="alacritty --config-file ${HOME}/.dotfiles/.config/alacritty/hos
 
 # Tell Electron apps to try to use Wayland
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+# Tell Signal to use encrypted password store
+export SIGNAL_PASSWORD_STORE=gnome-libsecret
