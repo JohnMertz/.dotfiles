@@ -95,10 +95,10 @@ export OLLAMA_KEEP_ALIVE=5m
 [ -e /tmp/ssh-agent.pid ] && SSH_AGENT_PID=$(cat /tmp/ssh-agent.pid)
 if [ -z $SSH_AGENT_PID ] || [ -z $SSH_AUTH_SOCK ]; then
   eval $(ssh-agent -a /tmp/ssh-agent.sock) >/dev/null
-  ssh-add
-  echo $SSH_AGENT_PID > /tmp/ssh-agent.pid
-  eval $(keychain --eval --agents gpg 867501AB)
 fi
+ssh-add -l >/dev/null|| ssh-add
+echo $SSH_AGENT_PID > /tmp/ssh-agent.pid
+#eval $(keychain --eval --agents gpg 867501AB)
 
 # Attach to or start next available tmux session
 if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && [ -n "$SSH_CONNECTION" ]; then
